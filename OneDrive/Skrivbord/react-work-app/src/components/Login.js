@@ -64,6 +64,7 @@ const Login = (props) => {
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
+      Login: {props.emailadresses}
     </div>
   )
 }

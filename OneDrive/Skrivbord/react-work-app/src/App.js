@@ -11,13 +11,13 @@ function App() {
 
   return (
     <div className = 'App'>
-      < NotionDataReader />
-      {/* <BrowserRouter>
+      <NotionDataReader />
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         <Route path="/Login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
       </Routes>
-        </BrowserRouter> */}
+        </BrowserRouter>
     </div>
   );
 }
