@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import NotionDataReader from './NotionDataReader'
 
 const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
+  const [message, setMessage] = useState("")
 
-  const navigate = useNavigate()
+  //Gets the database arrays from NotionDataReader with props
+  let userEmail = props.emailadresses[0];
+  let userPassword = props.emailPassword[0];
+  //const navigate = useNavigate()
+
 
   const onButtonClick = () => {
     setEmailError('')
   setPasswordError('')
-
   // Check if the user has entered both fields correctly
   if ('' === email) {
     setEmailError('Please enter your email')
@@ -33,6 +38,15 @@ const Login = (props) => {
     setPasswordError('The password must be 8 characters or longer')
     return
   }
+  // Fix a working foreachloop!!!
+  if (userEmail === email && userPassword === password) {
+    setMessage(`Du är nu inloggad som: ${email}`)
+    return
+  }
+  else {
+    setMessage(`Inloggning misslyckades!`)
+  }
+
   }
 
   return (
@@ -64,9 +78,10 @@ const Login = (props) => {
       <div className={'inputContainer'}>
         <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
-      Login: {props.emailadresses}
+       {message}
     </div>
   )
 }
+
 
 export default Login

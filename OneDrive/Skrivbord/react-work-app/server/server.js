@@ -21,12 +21,14 @@ app.post('/api/notion', async (req, res) => {
   try {
     const response = await notion.databases.query({
       database_id: PROJECTS_DATABASE_ID,
-      filter: req.body.filter, // eller någon annan payload du behöver skicka
-      sorts: req.body.sorts, // exempel på hur du kan inkludera sortering, om det behövs
+       filter: req.body.filter, // eller någon annan payload du behöver skicka
+       sorts: [{
+        property: "Name",
+        direction: "ascending"
+       }] // exempel på hur du kan inkludera sortering, om det behövs
       
     });
- 
-    console.log(response);
+
     res.json(response);
   } catch (error) {
     console.error(error);
