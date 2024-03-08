@@ -32,7 +32,8 @@ const NotionDataReader = () => {
           {data.results.map((project, index) => {
               return (
                 <tr key={index}>
-                    <td>{project.properties.Name.title[0]?.plain_text}</td>
+                    <td>{project.properties.Name.title[0]?.plain_text ?? "Inga namn att visa"}</td>
+
                 </tr>
                 );
             })
