@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Login from './Login';
 
 const NotionDataReader = () => {
 
@@ -23,17 +24,31 @@ const NotionDataReader = () => {
     fetchDataFromNotion();
   }, []);
 
+  const Email = () => {
+    const data1 = data.results.map (project => 
+      <tr>
+      <td>
+      {project.properties.Email.rich_text[0]?.plain_text}
 
+      </td>
+      </tr>
+  )
+  return data1;
+};
   if (!data || !Array.isArray(data?.results)) {
     return <p>Laddar data eller ingen data att visa...</p>;
   }
       return (
         <div>
+          <td>
+          <Email />
+          </td>
+
           {data.results.map((project, index) => {
               return (
                 <tr key={index}>
-                    <td>{project.properties.Name.title[0]?.plain_text ?? "Inga namn att visa"}</td>
-
+                    <td>{project.properties.Email.rich_text[0]?.plain_text ?? "Inga namn att visa"}</td>
+                    
                 </tr>
                 );
             })
