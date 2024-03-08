@@ -26,35 +26,22 @@ const NotionDataReader = () => {
 
   const Email = () => {
     const data1 = data.results.map (project => 
-      <tr>
-      <td>
-      {project.properties.Email.rich_text[0]?.plain_text}
-
-      </td>
-      </tr>
+      project.properties.Email.rich_text[0]?.plain_text
   )
-  return data1;
+  const data2 = data.results.map (project => 
+    project.properties.Password.rich_text[0]?.plain_text
+)
+  return <Login emailadresses={data1} emailPassword={data2} />;
 };
+
   if (!data || !Array.isArray(data?.results)) {
     return <p>Laddar data eller ingen data att visa...</p>;
   }
       return (
         <div>
-          <td>
           <Email />
-          </td>
-
-          {data.results.map((project, index) => {
-              return (
-                <tr key={index}>
-                    <td>{project.properties.Email.rich_text[0]?.plain_text ?? "Inga namn att visa"}</td>
-                    
-                </tr>
-                );
-            })
-            }       
         </div>
       );
-    };
+   };
 
 export default NotionDataReader;

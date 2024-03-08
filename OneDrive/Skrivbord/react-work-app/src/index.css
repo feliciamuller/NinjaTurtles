@@ -43,7 +43,7 @@ code {
 
 input[type='button'] {
   border: none;
-  background: cornflowerblue;
+  background: rgb(75, 140, 238);
   color: white;
   padding: 12px 24px;
   margin: 8px;
