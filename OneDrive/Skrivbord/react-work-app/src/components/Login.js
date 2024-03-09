@@ -10,8 +10,8 @@ const Login = (props) => {
   const [message, setMessage] = useState("")
 
   //Gets the database arrays from NotionDataReader with props
-  let userEmail = props.emailadresses[0];
-  let userPassword = props.emailPassword[0];
+  let userEmail = props.emailadresses;
+  let userPassword = props.emailPassword;
   //const navigate = useNavigate()
 
 
@@ -39,13 +39,25 @@ const Login = (props) => {
     return
   }
   // Fix a working foreachloop!!!
-  if (userEmail === email && userPassword === password) {
-    setMessage(`Du är nu inloggad som: ${email}`)
+  for (var p of userPassword){
+  for (var e of userEmail) {
+    if (e === email && p === password) {
+      setMessage(`Du är nu inloggad som: ${email}`)
+      return
+    }
+  }}
+
+  if (p != userPassword){
+    setMessage(`Fel Lösenord eller Email`)
     return
-  }
-  else {
-    setMessage(`Inloggning misslyckades!`)
-  }
+}
+  // if (userEmail === email && userPassword === password) {
+  //   setMessage(`Du är nu inloggad som: ${email}`)
+  //   return
+  // }
+  // else {
+  //   setMessage(`Inloggning misslyckades!`)
+  // }
 
   }
 
