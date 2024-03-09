@@ -1,6 +1,6 @@
 .mainContainer {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -10,27 +10,8 @@
   display: flex;
   flex-direction: column;
   font-size: 64px;
-  font-weight: bolder;
   align-items: center;
   justify-content: center;
-}
-
-.resultContainer,
-.historyItem {
-  flex-direction: row;
-  display: flex;
-  width: 400px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.historyContainer {
-  flex-direction: column;
-  display: flex;
-  height: 200px;
-  align-items: center;
-  flex-grow: 5;
-  justify-content: flex-start;
 }
 
 .buttonContainer {
@@ -38,7 +19,23 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 260px;
+  height: 160px;
+}
+.inputButton{
+  font-family: "Quicksand", sans-serif;
+  border: none;
+  background: rgb(182, 113, 96);
+  color: white;
+  padding: 12px 24px;
+  margin: 8px;
+  font-size: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.inputButton:hover{
+  color: black;
+
 }
 
 .inputContainer {
@@ -50,14 +47,52 @@
 
 .inputContainer > .errorLabel {
   color: red;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .inputBox {
+  font-family: "Quicksand", sans-serif;
   height: 48px;
   width: 400px;
   font-size: large;
   border-radius: 8px;
   border: 1px solid grey;
   padding-left: 8px;
+}
+
+.navbar{
+  display: inline;
+  position: fixed;
+}
+.menuContainer{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-decoration: none;
+}
+.headerName{
+  color: rgb(182, 113, 96);
+  font-size: 48px;
+  margin-right: 100px;
+  font-weight: lighter;
+}
+
+.navLinks{
+  font-size: 1.8em;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+.navLink{
+  padding: 20px;
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.navLink:hover{
+  color: rgb(182, 113, 96);
 }
