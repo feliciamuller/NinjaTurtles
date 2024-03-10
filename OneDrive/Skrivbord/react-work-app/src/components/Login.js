@@ -51,20 +51,13 @@ const Login = (props) => {
     setMessage(`Fel Lösenord eller Email`)
     return
 }
-  // if (userEmail === email && userPassword === password) {
-  //   setMessage(`Du är nu inloggad som: ${email}`)
-  //   return
-  // }
-  // else {
-  //   setMessage(`Inloggning misslyckades!`)
-  // }
 
   }
 
   return (
     <div className={'mainContainer'}>
       <div className={'titleContainer'}>
-        <div>Log in</div>
+        <h3>Log in</h3>
       </div>
       <br />
       <div className={'inputContainer'}>
