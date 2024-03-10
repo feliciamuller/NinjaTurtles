@@ -12,8 +12,7 @@ const Menu = () =>{
                     <li>
                     <Link to = "/Login" className = 'navLink'>Log in</Link>
                     </li>
-                </ul>
-                
+                </ul>        
             </div>
         </div>
     )
