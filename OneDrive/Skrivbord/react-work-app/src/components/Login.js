@@ -64,7 +64,7 @@ const Login = (props) => {
   return (
     <div className={'mainContainer'}>
       <div className={'titleContainer'}>
-        <div>Login</div>
+        <div>Log in</div>
       </div>
       <br />
       <div className={'inputContainer'}>
