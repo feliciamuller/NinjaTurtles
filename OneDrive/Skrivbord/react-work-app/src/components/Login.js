@@ -47,7 +47,7 @@ const Login = (props) => {
     }
   }}
 
-  if (p != userPassword){
+  if (p !== userPassword){
     setMessage(`Fel Lösenord eller Email`)
     return
 }
@@ -71,6 +71,7 @@ const Login = (props) => {
       <br />
       <div className="inputContainer">
         <input
+          type="password"
           value={password}
           placeholder="Enter your password here"
           onChange={(ev) => setPassword(ev.target.value)}
