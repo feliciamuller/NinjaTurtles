@@ -19,7 +19,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         <Route path="/Login" element={<NotionDataReader setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-        <Route path="/ogin" element={<NotionDataReader />} />
       </Routes>
         </BrowserRouter>
     </div>
