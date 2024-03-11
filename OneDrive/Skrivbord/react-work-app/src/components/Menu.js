@@ -2,9 +2,9 @@ import React from "react";
 import {Link} from 'react-router-dom'
 const Menu = () =>{
     return(
-        <div className='navbar'>
-            <div className = 'menuContainer'>
-            <h2 className = 'headerName'>NINJAS PORTAL</h2>
+        <div className="navbar">
+            <div className = "menuContainer">
+            <h2 className = "headerName">NINJAS PORTAL</h2>
                 <ul className = 'navLinks'>
                     <li>
                     <Link to = "/" className = 'navLink'>Home</Link>
