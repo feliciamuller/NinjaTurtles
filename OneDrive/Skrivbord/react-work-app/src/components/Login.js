@@ -55,22 +55,21 @@ const Login = (props) => {
   }
 
   return (
-    <div className={'mainContainer'}>
-      <div className={'titleContainer'}>
-        <h3>Log in</h3>
+    <div className= "mainContainer">
+      <div className="titleContainer">
+        <h2>Log in</h2>
       </div>
-      <br />
-      <div className={'inputContainer'}>
+      <div className="inputContainer">
         <input
           value={email}
           placeholder="Enter your email here"
           onChange={(ev) => setEmail(ev.target.value)}
-          className={'inputBox'}
+          className="inputBox"
         />
         <label className="errorLabel">{emailError}</label>
       </div>
       <br />
-      <div className={'inputContainer'}>
+      <div className="inputContainer">
         <input
           value={password}
           placeholder="Enter your password here"
@@ -79,9 +78,9 @@ const Login = (props) => {
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
-      <br />
-      <div className={'inputContainer'}>
-        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+      <br/>
+      <div className="inputContainer">
+        <input className= "inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
        {message}
     </div>

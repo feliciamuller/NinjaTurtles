@@ -7,9 +7,9 @@
 }
 
 .titleContainer {
+  font-size: 2em;
   display: flex;
   flex-direction: column;
-  font-size: 64px;
   align-items: center;
   justify-content: center;
 }
