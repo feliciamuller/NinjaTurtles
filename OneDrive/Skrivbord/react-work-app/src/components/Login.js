@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import NotionDataReader from './NotionDataReader'
+import NotionDataReader from './LoginData'
 
 const Login = (props) => {
   const [email, setEmail] = useState('')
