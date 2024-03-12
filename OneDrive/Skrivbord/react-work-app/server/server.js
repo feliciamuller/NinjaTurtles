@@ -14,47 +14,51 @@ const notion = new Client({
 });
 
 const PROJECTS_DATABASE_ID = process.env.NOTION_DATABASE_PEOPLE; // Använd miljövariabler även här
-const PROJECTS_DATABASE_ID2 = process.env.NOTION_DATABASE_PROJECT
-const PROJECTS_PAGE_ID = process.env.NOTION_PAGE_ID
+const PROJECTS_DATABASE_ID2 = process.env.NOTION_DATABASE_PROJECT;
+const PROJECTS_DATABASE_ID3 = process.env.NOTION_DATABASE_TIMEREPORTS;
 // Express route-hanterare
-app.post('/api/notion', async (req, res) => {
+
+app.post('/api/people', async (req, res) => {
   try {
-    const response = await notion.databases.query({
-      database_id: PROJECTS_DATABASE_ID,
-       filter: req.body.filter, // eller någon annan payload du behöver skicka
-       sorts: [{
-        property: "Name",
-        direction: "ascending"
-       }] // exempel på hur du kan inkludera sortering, om det behövs
-      
-    });
-    console.log(response);
-    res.json(response);
+    const people = await notion.databases.query({
+        database_id: PROJECTS_DATABASE_ID,
+        filter: req.body.filter,
+        sorts: [{ property: "Name", direction: "ascending" }]
+      });
+    res.json(people);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// app.post('/api/notion', async (req, res1) => {
-//   try {
-//     const response1 = await notion.databases.query({
-//       database_id: PROJECTS_DATABASE_ID2,
-//        filter: req.body.filter, // eller någon annan payload du behöver skicka
-//        sorts: [{
-//         property: "Projectname",
-//         direction: "ascending"
-//        }] // exempel på hur du kan inkludera sortering, om det behövs
-      
-//     });
-//     console.log(response1);
-//     res1.json(response1);
-//   } catch (error) {
-//     console.error(error);
-//     res1.status(500).json({ message: 'Internal server error' });
-//   }
-// });
+app.post('/api/project', async (req, res) => {
+  try {
+    const project = await notion.databases.query({
+        database_id: PROJECTS_DATABASE_ID2,
+        filter: req.body.filter,
+        sorts: req.body.sort
+      });
+    res.json(project);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
+app.post('/api/timereports', async (req, res) => {
+  try {
+    const timereports = await notion.databases.query({
+        database_id: PROJECTS_DATABASE_ID3,
+        filter: req.body.filter,
+        sorts: req.body.sort
+      });
+    res.json(timereports);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 //////////////////////
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
