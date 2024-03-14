@@ -12,6 +12,10 @@ const Menu = () => {
                     <li>
                         <Link to="/Login" className="navLink">Log in</Link>
                     </li>
+
+                    <li>
+                        <Link to="/Comment" className="navLink">Comment</Link>
+                    </li>
                 </ul>
                 {/* Här ska inloggings markör vara */}
             </div>
