@@ -14,19 +14,19 @@ async function addToDatabase() {
                 database_id: PROJECTS_DATABASE_ID,
             },
             properties: {
-            //     "Name": {
-            //         "id": "title",
-            //         "type": "title",
-            //         "title": [
-            //             {
-            //                 "type": "text",
-            //                 "text": {
-            //                     "content": "Fredrik",
-            //                     "link": null
-            //                 }
-            //             }
-            //         ]
-            //     }
+                "Name": {
+                    "id": "title",
+                    "type": "title",
+                    "title": [
+                        {
+                            "type": "text",
+                            "text": {
+                                "content": "Fredrik",
+                                "link": null
+                            }
+                        }
+                    ]
+                }
             },    
         });
         console.log(response);
@@ -101,29 +101,29 @@ async function getAllDatabases(){
     }
   };
 // getAllDatabases()
-// async function updateDatabase () {
-//     try {
-//     const update = await notion.pages.update({
-//         page_id: PROJECTS_PAGE_ID,
-//         properties: {
-//                             "Name": {
-//                                 "id": "title",
-//                                 "type": "title",
-//                                 "title": [
-//                                     {
-//                                         "type": "text",
-//                                         "text": {
-//                                             "content": "Arne",
-//                                             "link": null
-//                                         }
-//                                     }
-//                                 ]
-//                             }
-//                         }    
-//     });
-//     console.log(update);
-// } catch (error) {
-//     console.error(error);
-// }}
-//     ;
-//     updateDatabase()
+async function updateDatabase () {
+    try {
+    const update = await notion.pages.update({
+        page_id: PROJECTS_PAGE_ID,
+        properties: {
+                            "Name": {
+                                "id": "title",
+                                "type": "title",
+                                "title": [
+                                    {
+                                        "type": "text",
+                                        "text": {
+                                            "content": "Arne",
+                                            "link": null
+                                        }
+                                    }
+                                ]
+                            }
+                        }    
+    });
+    console.log(update);
+} catch (error) {
+    console.error(error);
+}}
+    ;
+    // updateDatabase()
