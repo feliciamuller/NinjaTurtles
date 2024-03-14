@@ -8,6 +8,7 @@ app.use(express.json());
 require('dotenv').config();
  
 const { Client } = require('@notionhq/client');
+const { default: addToDatabase } = require("./create");
  
 const notion = new Client({
   auth: process.env.NOTION_API_KEY, // Rekommenderad metod för att lagra känslig information
@@ -59,6 +60,7 @@ app.post('/api/timereports', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 //////////////////////
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

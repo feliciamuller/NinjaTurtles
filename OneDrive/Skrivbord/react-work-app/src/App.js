@@ -5,6 +5,13 @@ import { useEffect, useState } from 'react'
 import Login from './components/Login';
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
+import TimeReportData from './components/TimeReport';
+import PeopleData from './components/PeopleData';
+import TimeReport from './components/TimeReport';
+
+
+
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -19,6 +26,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        <Route path="/TimeReport" element={<TimeReport />} />
       </Routes>
         </BrowserRouter>
     </div>
