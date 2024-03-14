@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 import NotionDataReader from './LoginData'
+import { useState } from 'react'
+
 
 const Login = (props) => {
   const [email, setEmail] = useState('')
@@ -8,6 +9,7 @@ const Login = (props) => {
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState("")
+  
 
   //Gets the database arrays from NotionDataReader with props
   let userEmail = props.emailadresses;
@@ -39,14 +41,24 @@ const Login = (props) => {
     return
   }
   // Fix a working foreachloop!!!
-  for (var p of userPassword){
-  for (var e of userEmail) {
-    if (e === email && p === password) {
-      setMessage(`Du är nu inloggad som: ${email}`)
-      return
+  for (var p of userEmail){
+    if(p.properties.Email.rich_text[0]?.plain_text === email){
+      userID = p.id
+      console.log(userID); {
+  for (var p of userPassword) {
+    if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
+      console.log(p.properties.Name.title[0]?.plain_text)
+      localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
+        navigate("/test")
+        return
+      }
     }
-  }}
+  }
+      }
 
+    
+  }}
+ 
   if (p !== userPassword){
     setMessage(`Fel Lösenord eller Email`)
     return

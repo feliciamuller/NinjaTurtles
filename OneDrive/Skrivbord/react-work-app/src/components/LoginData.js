@@ -25,13 +25,8 @@ const NotionDataReader = () => {
   }, []);
 
   const Email = () => {
-    const data1 = data.results.map (project => 
-      project.properties.Email.rich_text[0]?.plain_text
-  )
-  const data2 = data.results.map (project => 
-    project.properties.Password.rich_text[0]?.plain_text
-)
-  return <Login emailadresses={data1} emailPassword={data2} />;
+    const data1 = data.results.map (people => people)  //EZZ
+  return <Login Email={data1} />;                       //EZZ
 };
 
   if (!data || !Array.isArray(data?.results)) {
