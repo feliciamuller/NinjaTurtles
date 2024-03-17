@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './Login';
+import UserData from "./UserData"
 
 const NotionDataReader = () => {
 
   const [data, setData] = useState(null);
   const fetchDataFromNotion = () => {
     const payload = {
-
     };
 
     axios.post('http://localhost:3001/api/people', payload)
@@ -25,8 +25,8 @@ const NotionDataReader = () => {
   }, []);
 
   const Email = () => {
-    const data1 = data.results.map (people => people)  //EZZ
-  return <Login Email={data1} />;                       //EZZ
+    const data1 = data.results.map(people => people)
+  return <Login Email={data1} />;
 };
 
   if (!data || !Array.isArray(data?.results)) {
@@ -34,8 +34,9 @@ const NotionDataReader = () => {
   }
       return (
         <div>
-          <Email />
+          <Email/>
+          
         </div>
       );
-          };
+};
 export default NotionDataReader;

@@ -1,9 +1,14 @@
 import { Navigate, useNavigate } from 'react-router-dom'
 import NotionDataReader from './LoginData'
+<<<<<<< HEAD
 import { useState } from 'react'
 
+=======
+import Home from './Home'
+import UserData from './UserData'
+>>>>>>> a0c4726e4d8526340b154d201971c7def2bfb829
 
-const Login = (props) => {
+  const Login = (props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -12,9 +17,11 @@ const Login = (props) => {
   
 
   //Gets the database arrays from NotionDataReader with props
-  let userEmail = props.emailadresses;
-  let userPassword = props.emailPassword;
-  //const navigate = useNavigate()
+  let userEmail = props.Email;
+  let userPassword = props.Password;
+  let userID;
+  // const userName = "";
+  const navigate = useNavigate()
 
 
   const onButtonClick = () => {
@@ -42,6 +49,7 @@ const Login = (props) => {
   }
   // Fix a working foreachloop!!!
   for (var p of userEmail){
+<<<<<<< HEAD
     if(p.properties.Email.rich_text[0]?.plain_text === email){
       userID = p.id
       console.log(userID); {
@@ -52,6 +60,19 @@ const Login = (props) => {
         navigate("/test")
         return
       }
+=======
+    if (p.properties.Email.rich_text[0]?.plain_text === email) {
+      userID = p.id
+      console.log(userID)
+
+      for (var p of userEmail) {
+        if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
+          console.log(p.properties.Name.title[0]?.plain_text)
+          localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
+          navigate("/UserPage")
+          return 
+        }
+>>>>>>> a0c4726e4d8526340b154d201971c7def2bfb829
     }
   }
       }
@@ -65,7 +86,6 @@ const Login = (props) => {
 }
 
   }
-
   return (
     <div className= "mainContainer">
       <div className="titleContainer">
@@ -95,7 +115,6 @@ const Login = (props) => {
       <div className="inputContainer">
         <input className= "inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
-       {message}
     </div>
   )
 }
