@@ -1,12 +1,7 @@
 import { Navigate, useNavigate } from 'react-router-dom'
 import NotionDataReader from './LoginData'
-<<<<<<< HEAD
-import { useState } from 'react'
-
-=======
 import Home from './Home'
 import UserData from './UserData'
->>>>>>> a0c4726e4d8526340b154d201971c7def2bfb829
 
   const Login = (props) => {
   const [email, setEmail] = useState('')
@@ -49,18 +44,6 @@ import UserData from './UserData'
   }
   // Fix a working foreachloop!!!
   for (var p of userEmail){
-<<<<<<< HEAD
-    if(p.properties.Email.rich_text[0]?.plain_text === email){
-      userID = p.id
-      console.log(userID); {
-  for (var p of userPassword) {
-    if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
-      console.log(p.properties.Name.title[0]?.plain_text)
-      localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
-        navigate("/test")
-        return
-      }
-=======
     if (p.properties.Email.rich_text[0]?.plain_text === email) {
       userID = p.id
       console.log(userID)
@@ -72,7 +55,6 @@ import UserData from './UserData'
           navigate("/UserPage")
           return 
         }
->>>>>>> a0c4726e4d8526340b154d201971c7def2bfb829
     }
   }
       }
@@ -85,7 +67,7 @@ import UserData from './UserData'
     return
 }
 
-  }
+  
   return (
     <div className= "mainContainer">
       <div className="titleContainer">
@@ -117,7 +99,7 @@ import UserData from './UserData'
       </div>
     </div>
   )
-}
+
 
 
 export default Login
