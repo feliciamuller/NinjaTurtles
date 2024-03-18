@@ -1,17 +1,20 @@
 import './App.css';
 import Home from './components/Home';
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import Login from './components/Login';
+import { useState } from 'react'
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
 import TimeReport from './components/TimeReport';
-
+import UserPage from './components/UserPage';
+import UserData from './components/UserData';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
-
+  // let login = <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+  // if (localStorage.getItem("loggedIn") === "true") {
+  //   login = <Route path="/LogOut" element={<LogOut />} />;
+  // }
   return (
     <div className = 'App'>
       <BrowserRouter>

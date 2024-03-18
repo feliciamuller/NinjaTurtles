@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Login from './Login';
-import UserData from "./UserData"
+import { useNavigate } from 'react-router-dom';
 
 const NotionDataReader = () => {
-
+  const navigate = useNavigate();
+  if (localStorage.getItem("loggedIn") === "true") {
+    navigate("/")
+  }
   const [data, setData] = useState(null);
   const fetchDataFromNotion = () => {
     const payload = {
