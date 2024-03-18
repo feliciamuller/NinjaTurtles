@@ -12,6 +12,7 @@ const TimeReport = () => {
     const [peopleData, setPeopleData] = useState(null);
     const [data, setData] = useState(null);
     const [peopleId, setPeopleId] = useState(null)
+    const [dateInput, setDateInput] = useState(null)
 
 
     const hoursInput = parseFloat(hours);
@@ -55,6 +56,15 @@ const TimeReport = () => {
                     }
                 ],
                 "has_more": false
+            },
+            "Date": {
+                "id": "HjkB",
+                "type": "date",
+                "date": {
+                    "start": dateInput,
+                    "end": null,
+                    "time_zone": null
+                }
             },
 
             //BEHÖVER LÄGGA IN DATUM OCH ACTIVITY 
@@ -122,7 +132,7 @@ const TimeReport = () => {
     const ShowPeople = () =>{
         let peopleArray = [];
     
-        if (projectData && Array.isArray(peopleData.results)) {
+        if (peopleData && Array.isArray(peopleData.results)) {
             peopleArray = peopleData.results.map((project) => {
                 const peopleName = project.properties.Name.title[0]?.plain_text;
                 return peopleName;
@@ -197,7 +207,12 @@ const TimeReport = () => {
                         </option>
                     ))}
                 </select>
-
+                <label>Datum</label>
+                <input type = "date"
+                    value={dateInput}
+                    onChange={(ev) => setDateInput(ev.target.value)}
+                />
+                
             </div>
             <button onClick={submitAddToDatabase}>Submit</button>
         </div>
