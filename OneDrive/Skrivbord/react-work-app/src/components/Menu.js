@@ -22,6 +22,9 @@ const Menu = () => {
                     <li>
                         {login}
                     </li>
+                    <li>
+                        <Link to ="/TimeReport" className="navLink">TimeReport</Link>
+                    </li>
                 </ul>
                 {logOut}
                 {/* Här ska inloggings markör vara */}
