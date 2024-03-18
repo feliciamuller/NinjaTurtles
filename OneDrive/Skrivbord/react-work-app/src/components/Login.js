@@ -57,6 +57,7 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
   setMessage(`Fel Lösenord eller Email`)
   return
 }
+  }
 
   
   return (
@@ -97,5 +98,5 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
 
 
 
-  }
+  
 export default Login

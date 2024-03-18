@@ -10,10 +10,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
-  // let login = <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-  // if (localStorage.getItem("loggedIn") === "true") {
-  //   login = <Route path="/LogOut" element={<LogOut />} />;
-  // }
+
   return (
     <div className = 'App'>
       <BrowserRouter>
