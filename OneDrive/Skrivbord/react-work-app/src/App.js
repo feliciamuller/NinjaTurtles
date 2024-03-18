@@ -5,15 +5,10 @@ import { useEffect, useState } from 'react'
 import Login from './components/Login';
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
-import TimeReportData from './components/TimeReport';
-import PeopleData from './components/PeopleData';
 import TimeReport from './components/TimeReport';
 
-
-
-
-
 function App() {
+
   const [loggedIn, setLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
 
