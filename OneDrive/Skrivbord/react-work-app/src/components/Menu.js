@@ -27,6 +27,7 @@ const Menu = () => {
                     </li>
                     <li>
                         {projects}
+                        <Link to ="/TimeReport" className="navLink">TimeReport</Link>
                     </li>
                 </ul>
                 {logOut}

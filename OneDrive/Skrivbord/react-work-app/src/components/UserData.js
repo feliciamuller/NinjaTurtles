@@ -45,7 +45,7 @@ const ButtonUpdate = () =>
 {return (
     <>
     <div className="mainContainer">
-    <button onClick={Update}>Knapp för att skapa en person!</button>
+    {/* <button onClick={Update}>Knapp för att skapa en person!</button> */}
     <button onClick={UpdateComment}>Knapp för uppdatera en kommentar!</button>
     </div>
     </>
