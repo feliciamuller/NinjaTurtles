@@ -1,9 +1,8 @@
-import { Navigate, useNavigate } from 'react-router-dom'
-import NotionDataReader from './LoginData'
-import Home from './Home'
-import UserData from './UserData'
+import React, { useState} from 'react'
 
   const Login = (props) => {
+
+    
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -13,11 +12,7 @@ import UserData from './UserData'
 
   //Gets the database arrays from NotionDataReader with props
   let userEmail = props.Email;
-  let userPassword = props.Password;
   let userID;
-  // const userName = "";
-  const navigate = useNavigate()
-
 
   const onButtonClick = () => {
     setEmailError('')
@@ -38,37 +33,34 @@ import UserData from './UserData'
     return
   }
 
-  if (password.length < 7) {
-    setPasswordError('The password must be 8 characters or longer')
+  if (password.length < 5) {
+    setPasswordError('The password must be 6 characters or longer')
     return
   }
-  // Fix a working foreachloop!!!
+
   for (var p of userEmail){
     if (p.properties.Email.rich_text[0]?.plain_text === email) {
       userID = p.id
       console.log(userID)
 
-      for (var p of userEmail) {
         if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
           console.log(p.properties.Name.title[0]?.plain_text)
           localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
-          navigate("/UserPage")
+          localStorage.setItem("userID", JSON.stringify(userID))
+          localStorage.setItem("loggedIn", "true")
+          window.location.reload()
           return 
         }
-    }
   }
-      }
-
-    
-  }}
- 
-  if (p !== userPassword){
-    setMessage(`Fel Lösenord eller Email`)
-    return
+}
+if (p.properties.Password.rich_text[0]?.plain_text !== password){
+  setMessage(`Fel Lösenord eller Email`)
+  return
 }
 
   
   return (
+    
     <div className= "mainContainer">
       <div className="titleContainer">
         <h2>Log in</h2>
@@ -97,9 +89,13 @@ import UserData from './UserData'
       <div className="inputContainer">
         <input className= "inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
+      {message}
     </div>
   )
+  
+}
 
 
 
+  }
 export default Login
