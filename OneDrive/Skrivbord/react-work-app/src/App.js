@@ -6,6 +6,7 @@ import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
 import UserPage from './components/UserPage';
 import UserData from './components/UserData';
+import ShowProjects from './components/Projects';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
         <Route path="/UserPage" element={<UserPage />} />
         <Route path="/UserData" element={<UserData />} />
+        <Route path="/Projects" element={<ShowProjects />} />
       </Routes>
         </BrowserRouter>
     </div>
