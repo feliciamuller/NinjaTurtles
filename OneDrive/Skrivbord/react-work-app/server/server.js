@@ -32,6 +32,20 @@ app.post('/api/people', async (req, res) => {
   }
 });
 
+app.post('/api/create_people', async (req, res) => {
+  try {
+    const create_people = await notion.pages.create({
+        parent: {
+            database_id: PROJECTS_DATABASE_ID,
+        },
+        properties: req.body
+    });
+    console.log(create_people);
+} catch (error) {
+    console.error(error.body);
+}
+});
+
 app.post('/api/project', async (req, res) => {
   try {
     const project = await notion.databases.query({
@@ -44,6 +58,20 @@ app.post('/api/project', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+});
+
+app.post('/api/create_projects', async (req, res) => {
+  try {
+    const create_projects = await notion.pages.create({
+        parent: {
+            database_id: PROJECTS_DATABASE_ID2,
+        },
+        properties: req.body
+    });
+    console.log(create_projects);
+} catch (error) {
+    console.error(error.body);
+}
 });
 
 app.post('/api/timereports', async (req, res) => {
@@ -72,6 +100,33 @@ app.post('/api/updatePeople', async (req, res) => {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
+});
+
+app.post('/api/create_timereports', async (req, res) => {
+  try {
+    const create_timereports = await notion.pages.create({
+        parent: {
+            database_id: PROJECTS_DATABASE_ID3,
+        },
+        properties: req.body
+    });
+    console.log(create_timereports);
+} catch (error) {
+    console.error(error.body);
+}
+});
+
+app.post('/api/update_timereports_comment', async (req, res) => {
+  try {
+    const pageid = "39a9deaf1874439496d343a064a20a9b"
+    const update_timereports_comment = await notion.pages.update({
+        page_id: pageid,
+        properties: req.body
+    });
+    console.log(update_timereports_comment);
+} catch (error) {
+    console.error(error.body);
+}
 });
 //////////////////////
 const PORT = process.env.PORT || 3001;

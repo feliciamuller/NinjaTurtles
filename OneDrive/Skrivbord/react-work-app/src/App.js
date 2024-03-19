@@ -5,10 +5,11 @@ import { useEffect, useState } from 'react'
 import Login from './components/Login';
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
-import CommentSection from './components/CommentForm';
-
+import UserPage from './components/UserPage';
+import UserData from './components/UserData';
 
 function App() {
+
   const [loggedIn, setLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -21,7 +22,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
           <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-          <Route path="/Comment" element={<CommentSection />} />
+          <Route path="/UserPage" element={<UserPage />} />
+          <Route path="/UserData" element={<UserData />} />
         </Routes>
       </BrowserRouter>
     </div>
