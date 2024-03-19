@@ -7,6 +7,7 @@ import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
 import UserPage from './components/UserPage';
 import UserData from './components/UserData';
+import CommentSection from './components/CommentForm';
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
           <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
           <Route path="/UserPage" element={<UserPage />} />
           <Route path="/UserData" element={<UserData />} />
+          <Route path="/Comment" element={<CommentSection />} />
+
         </Routes>
       </BrowserRouter>
     </div>

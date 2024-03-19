@@ -35,15 +35,15 @@ app.post('/api/people', async (req, res) => {
 app.post('/api/create_people', async (req, res) => {
   try {
     const create_people = await notion.pages.create({
-        parent: {
-            database_id: PROJECTS_DATABASE_ID,
-        },
-        properties: req.body
+      parent: {
+        database_id: PROJECTS_DATABASE_ID,
+      },
+      properties: req.body
     });
     console.log(create_people);
-} catch (error) {
+  } catch (error) {
     console.error(error.body);
-}
+  }
 });
 
 app.post('/api/project', async (req, res) => {
@@ -63,15 +63,15 @@ app.post('/api/project', async (req, res) => {
 app.post('/api/create_projects', async (req, res) => {
   try {
     const create_projects = await notion.pages.create({
-        parent: {
-            database_id: PROJECTS_DATABASE_ID2,
-        },
-        properties: req.body
+      parent: {
+        database_id: PROJECTS_DATABASE_ID2,
+      },
+      properties: req.body
     });
     console.log(create_projects);
-} catch (error) {
+  } catch (error) {
     console.error(error.body);
-}
+  }
 });
 
 app.post('/api/timereports', async (req, res) => {
@@ -105,28 +105,32 @@ app.post('/api/updatePeople', async (req, res) => {
 app.post('/api/create_timereports', async (req, res) => {
   try {
     const create_timereports = await notion.pages.create({
-        parent: {
-            database_id: PROJECTS_DATABASE_ID3,
-        },
-        properties: req.body
+      parent: {
+        database_id: PROJECTS_DATABASE_ID3,
+      },
+      properties: req.body
     });
     console.log(create_timereports);
-} catch (error) {
+  } catch (error) {
     console.error(error.body);
-}
+  }
 });
 
 app.post('/api/update_timereports_comment', async (req, res) => {
   try {
     const pageid = "39a9deaf1874439496d343a064a20a9b"
+    /* const pageid2 = "ef297e1b6d8b4e93805306eab8bc92ee"
+    const pageid3 = "7b9215962d5041f085c7aeac11228b70"
+    const pageid4 = "6878066aed714b43b94dbf06f6da05d3"
+    const pageid5 = "c65505f5984e412cba7aca1df6d9c980" */
     const update_timereports_comment = await notion.pages.update({
-        page_id: pageid,
-        properties: req.body
+      page_id: pageid,
+      properties: req.body
     });
     console.log(update_timereports_comment);
-} catch (error) {
+  } catch (error) {
     console.error(error.body);
-}
+  }
 });
 //////////////////////
 const PORT = process.env.PORT || 3001;
