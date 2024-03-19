@@ -122,7 +122,7 @@ const TimeReport = () => {
     const ShowPeople = () =>{
         let peopleArray = [];
     
-        if (projectData && Array.isArray(peopleData.results)) {
+        if (peopleData && Array.isArray(peopleData.results)) {
             peopleArray = peopleData.results.map((project) => {
                 const peopleName = project.properties.Name.title[0]?.plain_text;
                 return peopleName;
