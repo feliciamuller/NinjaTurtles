@@ -1,6 +1,21 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 const Menu = () => {
+    let logOut;
+    const onButtonClick = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
+    let login = <Link to="/Login" className="navLink">Log in</Link>;
+    let projects;
+    let timereports;
+
+    if (localStorage.getItem("loggedIn") === "true") {
+        login = ""
+        logOut = <button onClick={onButtonClick}>Log Out</button>
+        projects = <Link to="/Projects" className="navLink">Projects</Link>;
+        timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
+      }
     return (
         <div className="navbar">
             <div className="menuContainer">
@@ -10,13 +25,20 @@ const Menu = () => {
                         <Link to="/" className="navLink">Home</Link>
                     </li>
                     <li>
-                        <Link to="/Login" className="navLink">Log in</Link>
+                        {login}
+                    </li>
+                    <li>
+                        {projects}
+                    </li>
+                    <li>
+                        {timereports}
                     </li>
 
                     <li>
                         <Link to="/Comment" className="navLink">Comment</Link>
                     </li>
                 </ul>
+                {logOut}
                 {/* Här ska inloggings markör vara */}
             </div>
         </div>

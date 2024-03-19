@@ -38,19 +38,18 @@ const UpdateComment = () => {
     };
 
     axios.post('http://localhost:3001/api/update_timereports_comment', payload)
-        .then(function (response) {
-            console.log(response)
-        })
-};
-const ButtonUpdate = () => {
-    return (
-        <>
-            <div className="mainContainer">
-                <button onClick={Update}>Knapp för att skapa en person!</button>
-                <button onClick={UpdateComment}>Knapp för uppdatera en kommentar!</button>
-            </div>
-        </>
-    )
-}
+      .then(function (response){
+          console.log(response)
+      })
+  };
+const ButtonUpdate = () =>
+{return (
+    <>
+    <div className="mainContainer">
+    {/* <button onClick={Update}>Knapp för att skapa en person!</button> */}
+    <button onClick={UpdateComment}>Knapp för uppdatera en kommentar!</button>
+    </div>
+    </>
+)}
 
 export default ButtonUpdate
