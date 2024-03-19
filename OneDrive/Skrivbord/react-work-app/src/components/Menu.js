@@ -33,6 +33,10 @@ const Menu = () => {
                     <li>
                         {timereports}
                     </li>
+
+                    <li>
+                        <Link to="/Comment" className="navLink">Comment</Link>
+                    </li>
                 </ul>
                 {logOut}
                 {/* Här ska inloggings markör vara */}

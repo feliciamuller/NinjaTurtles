@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './components/Home';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
@@ -17,7 +17,7 @@ function App() {
   //   login = <Route path="/LogOut" element={<LogOut />} />;
   // }
   return (
-    <div className = 'App'>
+    <div className='App'>
       <BrowserRouter>
       <header>
         <Menu/>
