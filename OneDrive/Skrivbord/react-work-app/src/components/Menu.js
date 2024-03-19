@@ -7,10 +7,13 @@ const Menu = () => {
         window.location.reload()
     }
     let login = <Link to="/Login" className="navLink">Log in</Link>;
+    let projects;
+    
     let loggedInUser = null; //EZ
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
         logOut = <button onClick={onButtonClick}>Log Out</button>
+        projects = <Link to="/Projects" className="navLink">Projects</Link>;
         loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
 
       }
@@ -24,6 +27,10 @@ const Menu = () => {
                     </li>
                     <li>
                         {login}
+                    </li>
+                    <li>
+                        {projects}
+                        <Link to ="/TimeReport" className="navLink">TimeReport</Link>
                     </li>
                 </ul>
                 {logOut}
