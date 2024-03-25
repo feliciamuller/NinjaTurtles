@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const TimeReport = () => {
+
+    const navigate = useNavigate();
+    if (localStorage.getItem("loggedIn") === null) {
+      navigate("/")
+    }
+
     const [hours, setHours] = useState('');
     const [textComment, setTextComment] = useState('');
     const [projectName, setProjectName] = useState('');
@@ -12,14 +19,11 @@ const TimeReport = () => {
     const [peopleData, setPeopleData] = useState(null);
     const [data, setData] = useState(null);
     const [peopleId, setPeopleId] = useState(null)
-    const [dateInput, setDateInput] = useState(null)
-
 
     const hoursInput = parseFloat(hours);
     // const peopleId = "06e9bb3d-0884-41cb-9207-dc7f2fe1a4be"
     // const projectId = "7c93b28e-6245-4e96-a192-aa79be6d6ac9"
 
-    
     const addToDatabase = () => {
         const payload = {
             "Hours": {
@@ -56,15 +60,6 @@ const TimeReport = () => {
                     }
                 ],
                 "has_more": false
-            },
-            "Date": {
-                "id": "HjkB",
-                "type": "date",
-                "date": {
-                    "start": dateInput,
-                    "end": null,
-                    "time_zone": null
-                }
             },
 
             //BEHÖVER LÄGGA IN DATUM OCH ACTIVITY 
@@ -207,12 +202,7 @@ const TimeReport = () => {
                         </option>
                     ))}
                 </select>
-                <label>Datum</label>
-                <input type = "date"
-                    value={dateInput}
-                    onChange={(ev) => setDateInput(ev.target.value)}
-                />
-                
+
             </div>
             <button onClick={submitAddToDatabase}>Submit</button>
         </div>
