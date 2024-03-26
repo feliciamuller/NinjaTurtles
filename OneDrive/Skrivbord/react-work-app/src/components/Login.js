@@ -46,10 +46,20 @@ import React, { useState} from 'react'
         if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
           console.log(p.properties.Name.title[0]?.plain_text)
           localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
-          localStorage.setItem("userID", JSON.stringify(userID))
+          localStorage.setItem("userID", userID)
           localStorage.setItem("loggedIn", "true")
+
+
+          if (p.properties.UserID.rich_text[0]?.plain_text === "chef")
+          {
+            localStorage.setItem("chefFunctions", "true")
+          }
+          if (p.properties.UserID.rich_text[0]?.plain_text === "projektledare")
+          {
+            localStorage.setItem("projektledareFunctions", "true")
+          }
           window.location.reload()
-          return 
+          return
         }
   }
 }

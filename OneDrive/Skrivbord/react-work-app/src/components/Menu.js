@@ -38,10 +38,17 @@ const Menu = () => {
                     <li>
                         {timereports}
                     </li>
+
                     <li>
                         {fetchtime}
                     </li>
                  
+
+
+
+                    <li>
+                        <Link to="/Comment" className="navLink">Comment</Link>
+                    </li>
 
                 </ul>
                 {logOut}
