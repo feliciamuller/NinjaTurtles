@@ -166,6 +166,7 @@ const TimeReport = () => {
         addToDatabase();
 }
 
+
     return (
         <div className="mainContainer">
             <div className="titleContainer">

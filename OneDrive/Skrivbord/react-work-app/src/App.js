@@ -8,6 +8,7 @@ import TimeReport from './components/TimeReport';
 import UserPage from './components/UserPage';
 import UserData from './components/UserData';
 import ShowProjects from './components/Projects';
+import FetchTime from './components/FetchTime';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -27,6 +28,7 @@ function App() {
         <Route path="/UserData" element={<UserData />} />
         <Route path="/Projects" element={<ShowProjects />} />
         <Route path="/TimeReport" element={<TimeReport />} />
+        <Route path="/FetchTime" element={<FetchTime/>} />
 
       </Routes>
         </BrowserRouter>

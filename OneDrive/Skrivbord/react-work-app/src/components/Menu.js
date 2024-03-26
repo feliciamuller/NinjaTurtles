@@ -8,8 +8,8 @@ const Menu = () => {
     }
     let login = <Link to="/Login" className="navLink">Log in</Link>;
     let projects;
-    
-    let loggedInUser = null; //EZ
+    let fetchtime;
+    let loggedInUser //EZ
     let timereports;
 
     if (localStorage.getItem("loggedIn") === "true") {
@@ -17,6 +17,7 @@ const Menu = () => {
         logOut = <button onClick={onButtonClick}>Log Out</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
         loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
+        fetchtime = <Link to ="/FetchTime" className="navlink">FetchTime</Link>
 
         timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
       }
@@ -37,6 +38,11 @@ const Menu = () => {
                     <li>
                         {timereports}
                     </li>
+                    <li>
+                        {fetchtime}
+                    </li>
+                 
+
                 </ul>
                 {logOut}
                 {/* Här ska inloggings markör vara */}
