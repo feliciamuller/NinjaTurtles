@@ -10,12 +10,15 @@ const Menu = () => {
     let projects;
     
     let loggedInUser = null; //EZ
+    let timereports;
+
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
         logOut = <button onClick={onButtonClick}>Log Out</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
         loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
 
+        timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
       }
     return (
         <div className="navbar">
@@ -30,7 +33,9 @@ const Menu = () => {
                     </li>
                     <li>
                         {projects}
-                        <Link to ="/TimeReport" className="navLink">TimeReport</Link>
+                    </li>
+                    <li>
+                        {timereports}
                     </li>
                 </ul>
                 {logOut}
