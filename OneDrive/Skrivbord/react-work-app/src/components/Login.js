@@ -8,6 +8,7 @@ import React, { useState} from 'react'
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState("")
+  
 
   //Gets the database arrays from NotionDataReader with props
   let userEmail = props.Email;
@@ -66,8 +67,9 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
   setMessage(`Fel Lösenord eller Email`)
   return
 }
-
   }
+
+  
   return (
     
     <div className= "mainContainer">
@@ -106,4 +108,5 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
 
 
 
+  
 export default Login
