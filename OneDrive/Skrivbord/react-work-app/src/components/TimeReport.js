@@ -19,7 +19,7 @@ const TimeReport = () => {
     // const peopleId = "06e9bb3d-0884-41cb-9207-dc7f2fe1a4be"
     // const projectId = "7c93b28e-6245-4e96-a192-aa79be6d6ac9"
 
-    
+
     const addToDatabase = () => {
         const payload = {
             "Hours": {
@@ -43,7 +43,7 @@ const TimeReport = () => {
                     {
                         "id": projectId
                     },
-                ], 
+                ],
                 "has_more": false
             },
 
@@ -72,7 +72,7 @@ const TimeReport = () => {
         };
 
         axios.post('http://localhost:3001/api/create_timereports', payload)
-            .then(function (response){
+            .then(function (response) {
                 console.log(response);
             })
             .catch(function (error) {
@@ -85,22 +85,22 @@ const TimeReport = () => {
         const payload = {
 
         };
-      
-          axios.post('http://localhost:3001/api/project', payload)
+
+        axios.post('http://localhost:3001/api/project', payload)
             .then(response => {
-              setProjectData(response.data);
-              console.log('Data hämtad från project:', response.data);
+                setProjectData(response.data);
+                console.log('Data hämtad från project:', response.data);
             })
             .catch(error => {
-              console.error('Fel vid hämtning från Notion:', error);
+                console.error('Fel vid hämtning från Notion:', error);
             });
     };
-        
+
     const fetchPeopleData = () => {
         const payload = {
-    
+
         };
-          
+
         axios.post('http://localhost:3001/api/people', payload)
             .then(response => {
                 setPeopleData(response.data);
@@ -109,16 +109,16 @@ const TimeReport = () => {
             .catch(error => {
                 console.error('Fel vid hämtning från Notion:', error);
             });
-    };  
-    
+    };
+
     useEffect(() => {
         fetchProjectData();
         fetchPeopleData();
     }, []);
 
-    const ShowProject = () =>{
+    const ShowProject = () => {
         let projectArray = [];
-    
+
         if (projectData && Array.isArray(projectData.results)) {
             projectArray = projectData.results.map((project) => {
                 const projectName = project.properties.Projectname.title[0]?.plain_text;
@@ -129,9 +129,9 @@ const TimeReport = () => {
         return projectArray;
     }
 
-    const ShowPeople = () =>{
+    const ShowPeople = () => {
         let peopleArray = [];
-    
+
         if (peopleData && Array.isArray(peopleData.results)) {
             peopleArray = peopleData.results.map((project) => {
                 const peopleName = project.properties.Name.title[0]?.plain_text;
@@ -162,60 +162,66 @@ const TimeReport = () => {
 
     };
 
-    const submitAddToDatabase = () =>{
+    const submitAddToDatabase = () => {
         addToDatabase();
-}
+    }
 
     return (
         <div className="mainContainer">
-            <div className="titleContainer">
-                <h2>Time report</h2>
-            </div>
 
-            <div className="inputContainer">
-                <input
-                    value={hours}
-                    placeholder="Hur många timmar vill du rapportera?"
-                    onChange={(ev) => setHours(ev.target.value)}//ändrar state på hours
-                />
-            </div>
-            <br />
 
-            <div className="inputContainer">
-                <input
-                    value={textComment}
-                    placeholder="Skriv en kommentar"
-                    onChange={(ev) => setTextComment(ev.target.value)}//ändrar state på textcomment
-                />
-            </div>
-            <br />
 
-            <div className="projectDropdown">
-                <label>Välj ett projekt</label>
-                <select onChange={handleSelect}>
-                    {ShowProject().map((project) => (
-                        <option key = {project} value={project}>
-                            {project}
-                        </option>
-                    ))}
-                </select>
-                <label>Vem är du?</label>
-                <select onChange={handleSelectPeople}>
-                    {ShowPeople().map((people) => (
-                        <option key = {people} value={people}>
-                            {people}
-                        </option>
-                    ))}
-                </select>
-                <label>Datum</label>
-                <input type = "date"
-                    value={dateInput}
-                    onChange={(ev) => setDateInput(ev.target.value)}
-                />
-                
+            <div className="report-form">
+                <div className="title-form">
+                    Time report
+                </div> <br />
+                <div className="projectDropdown">
+                    <label>Projekt</label><br />
+                    <select onChange={handleSelect}>
+                        {ShowProject().map((project) => (
+                            <option key={project} value={project}>
+                                {project}
+                            </option>
+                        ))}
+                    </select><br />
+                    <br /> <label>Person</label><br />
+                    <select onChange={handleSelectPeople}>
+                        {ShowPeople().map((people) => (
+                            <option key={people} value={people}>
+                                {people}
+                            </option>
+                        ))}
+                    </select><br />
+                    <br /><label>Datum</label><br />
+                    <input type="date"
+                        value={dateInput}
+                        onChange={(ev) => setDateInput(ev.target.value)}
+
+                    /></div>
+                <div className="inputContainer">
+                    <br /><label>Antal Timmar</label> <input
+                        value={hours}
+                        placeholder="Rapportera timmar"
+                        onChange={(ev) => setHours(ev.target.value)}//ändrar state på hours
+                    />
+                </div>
+                <br />
+
+                <div className="inputContainer">
+                    <label>Kommentar</label>
+                    <input
+                        value={textComment}
+                        placeholder="Skriv en kommentar"
+                        onChange={(ev) => setTextComment(ev.target.value)}//ändrar state på textcomment
+                    />
+
+                    <br />
+
+                </div>
+                <br /><button className="submit-button" onClick={submitAddToDatabase}>Submit</button>
             </div>
-            <button onClick={submitAddToDatabase}>Submit</button>
-        </div>
+        </div >
+
     );
 }
 

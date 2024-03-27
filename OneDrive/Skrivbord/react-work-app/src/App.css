@@ -1,27 +1,161 @@
+/*targets screens with a maximum width of 768 pixels.*/
+@media (max-width: 768px) {
+
+  .report-form {
+    position: fixed !important;
+    top: 160px !important;
+    right: 119px !important;
+  }
+
+  .logOut-button {
+    position: fixed !important;
+    top: 607px !important;
+    right: 19px !important;
+  }
+
+  .navLink {
+    background-color: rgba(230, 230, 230, 60%) !important;
+    border-radius: 17px !important;
+    padding: 0px !important;
+    margin: 30px !important;
+
+  }
+
+  .navLinks {
+    font-size: 2em !important;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+
+
+  }
+
+}
+
+/*Timereportering container*/
 .mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 30px;
+  height: 100vh;
+}
+
+/*login container*/
+
+.login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+
 }
 
-.titleContainer {
+/*Logout button*/
+.logOut-button {
+  font-family: "Quicksand", sans-serif;
+  position: fixed;
+  top: 60px;
+  right: 100px;
+  background-color: #8c3851;
+  color: white;
+  padding: 3px 20px;
+  border: none;
+  border-radius: 29px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+
+}
+
+.logOut-button:hover {
+
+  background-color: rgb(182, 113, 96);
+}
+
+/*Timereporting form*/
+.report-form {
+  position: fixed;
+  top: 157px;
+  height: 433px;
+  width: 322px;
+  padding: 10px;
+  border: 17px solid #ccc;
+  border-radius: 50px;
+}
+
+/*Timereporting titel*/
+.title-form {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 34px;
   font-size: 2em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  font-weight: lighter;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.buttonContainer {
+/*Timereportering choosing box*/
+.projectDropdown {
+  margin-left: 60px;
+}
+
+/*Timereporting text of the choosing box*/
+.projectDropdown label {
+  color: black;
+}
+
+/*Timereporting submit button*/
+.submit-button {
+  font-family: "Quicksand", sans-serif;
+  background-color: #8c3851;
+  color: white;
+  padding: 3px 20px;
+  border: none;
+  border-radius: 29px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: 82px;
+  margin-top: 34px;
+
+}
+
+.submit-button:hover {
+  background-color: rgb(182, 113, 96);
+}
+
+/*Welcome container for the main page*/
+.welcome-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 160px;
+  height: 80vh;
+
 }
-.inputButton{
+
+/*The title of the welcome page*/
+.welcome-title {
+  font-size: 2em;
+  line-height: 100px;
+  text-align: center;
+  height: 100px;
+}
+
+.welcome-title h3 {
+
+  font-size: 1em;
+  line-height: 25px;
+  text-align: center;
+}
+
+
+/*Login submit button*/
+.inputButton {
   font-family: "Quicksand", sans-serif;
   border: none;
   background: rgb(182, 113, 96);
@@ -33,22 +167,27 @@
   cursor: pointer;
 }
 
-.inputButton:hover{
+.inputButton:hover {
   color: black;
 
 }
+
+/*Login input container*/
 
 .inputContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  margin-left: 40px;
 }
 
-.inputContainer > .errorLabel {
+.inputContainer>.errorLabel {
   color: red;
   font-size: 16px;
 }
+
+/*Login inputbox*/
 
 .inputBox {
   font-family: "Quicksand", sans-serif;
@@ -60,24 +199,29 @@
   padding-left: 8px;
 }
 
-.navbar{
+/*Menu section*/
+.navbar {
   display: inline;
   position: fixed;
 }
-.menuContainer{
+
+.menuContainer {
   display: flex;
   align-items: center;
   justify-content: left;
   text-decoration: none;
 }
-.headerName{
+
+.headerName {
   color: rgb(182, 113, 96);
   font-size: 48px;
   margin-right: 100px;
   font-weight: lighter;
+  margin-left: 20px;
+
 }
 
-.navLinks{
+.navLinks {
   font-size: 1.8em;
   padding: 10px;
   display: flex;
@@ -85,20 +229,21 @@
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
+
 }
-.navLink{
-  padding: 20px;
+
+.navLink {
   margin: 20px;
   text-decoration: none;
   color: black;
+
 }
 
-.navLink:hover{
+.navLink:hover {
   color: rgb(182, 113, 96);
 }
 
-.projectDropdown{
+.projectDropdown {
   color: rgb(182, 113, 96);
-  
-  
+
 }

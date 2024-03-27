@@ -1,14 +1,13 @@
-import { updatePage } from '@notionhq/client/build/src/api-endpoints';
 import React, { useEffect } from 'react';
 
-function Home (props) {
+function Home(props) {
 
   return (
-    <div className="mainContainer">
-      <div className="titleContainer">
+    <div className="welcome-container">
+      <div className="welcome-title">
         <h2>Welcome {localStorage.getItem("userName")}</h2>
+        <h3>This is the home page</h3>
       </div>
-      <h3>This is the home page.</h3>
     </div>
   )
 }
