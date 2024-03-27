@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Alert from '@mui/material/Alert';
 
 const TimeReport = () => {
-      const navigate = useNavigate();
+    const navigate = useNavigate();
     if (localStorage.getItem("loggedIn") === null) {
-      navigate("/")
+        navigate("/")
     }
-  
+
     const [hours, setHours] = useState(null);
     const [textComment, setTextComment] = useState(null);
     const [projectName, setProjectName] = useState(null);
@@ -22,7 +22,7 @@ const TimeReport = () => {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [activityComment, setActivityComment] = useState(null);
     const hoursInput = parseFloat(hours);
- 
+
 
 
     const addToDatabase = () => {
@@ -129,6 +129,7 @@ const TimeReport = () => {
                 setPeopleData(response.data);
                 setPeopleId(JSON.parse(localStorage.getItem("userID")))
                 console.log('Data hämtad från people:', response.data);
+                console.log(peopleId);
             })
             .catch(error => {
                 console.error('Fel vid hämtning från Notion:', error);
@@ -156,21 +157,21 @@ const TimeReport = () => {
     const handleSelect = (e) => {
         const projectName = e.target.value;
 
-        if(projectName === ""){
+        if (projectName === "") {
             setProjectName(null);
         }
         else {
             const selectedProject = projectData.results.find(project => project.properties.Projectname.title[0]?.plain_text === projectName);
             setProjectName(projectName);
             setProjectId(selectedProject.id);
-        }  
+        }
     };
 
 
-    const submitAddToDatabase = () =>{
+    const submitAddToDatabase = () => {
         setFormSubmitted(true);
 
-        if (projectName === null || dateInput === null){ 
+        if (projectName === null || dateInput === null) {
             return false;
         }
         else {
@@ -178,7 +179,7 @@ const TimeReport = () => {
             setSubmitSuccess(true);
             return true;
         }
-}
+    }
     return (
         <div className="mainContainer">
 
@@ -198,7 +199,7 @@ const TimeReport = () => {
                             </option>
                         ))}
                     </select><br />
-                    
+
                     <br /><label>Datum</label><br />
                     <input type="date"
                         value={dateInput}
@@ -213,14 +214,15 @@ const TimeReport = () => {
                     />
                 </div>
                 <br />
-                      
-                       <div className="inputContainer">
-                <input
-                    value={activityComment}
-                    placeholder="Ange aktivitet"
-                    onChange={(ev) => setActivityComment(ev.target.value)}
-                />
-            </div>
+
+                <div className="inputContainer">
+                    <label>Ange aktivitet</label>
+                    <input
+                        value={activityComment}
+                        placeholder="Ange aktivitet"
+                        onChange={(ev) => setActivityComment(ev.target.value)}
+                    />
+                </div>
 
                 <div className="inputContainer">
                     <label>Kommentar</label>
@@ -235,12 +237,12 @@ const TimeReport = () => {
                 </div>
                 <br /><button className="submit-button" onClick={submitAddToDatabase}>Submit</button>
 
-  {formSubmitted && (projectName === null || dateInput === null) && (
-                <Alert severity="error">Du måste välja projekt och datum.</Alert>
-            )}
-            {submitSuccess && (
-                <Alert severity="success">Tidrapporten har registrerats!</Alert>
-            )} 
+                {formSubmitted && (projectName === null || dateInput === null) && (
+                    <Alert severity="error">Du måste välja projekt och datum.</Alert>
+                )}
+                {submitSuccess && (
+                    <Alert severity="success">Tidrapporten har registrerats!</Alert>
+                )}
             </div>
         </div >
 
