@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
+import '../App.css'
 const Menu = () => {
     let logOut;
     const onButtonClick = () => {
@@ -15,14 +16,16 @@ const Menu = () => {
 
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
-        logOut = <button onClick={onButtonClick}>Log Out</button>
+        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGOUT</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
+
         loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
         fetchtime = <Link to ="/FetchTime" className="navlink">FetchTime</Link>
 
         timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
         projectHours = <Link to ="/ProjectHours" className = "navLink">ProjectHours</Link>
       }
+
     return (
         <div className="navbar">
             <div className="menuContainer"> 
@@ -40,6 +43,7 @@ const Menu = () => {
                     <li>
                         {timereports}
                     </li>
+
 
                     <li>
                         {fetchtime}
@@ -63,4 +67,4 @@ const Menu = () => {
         </div>
     )
 }
-export default Menu;
+export default Menu; 

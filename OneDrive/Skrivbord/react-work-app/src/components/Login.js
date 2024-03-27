@@ -1,8 +1,8 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 
-  const Login = (props) => {
+const Login = (props) => {
 
-    
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
@@ -16,32 +16,32 @@ import React, { useState} from 'react'
 
   const onButtonClick = () => {
     setEmailError('')
-  setPasswordError('')
-  // Check if the user has entered both fields correctly
-  if ('' === email) {
-    setEmailError('Please enter your email')
-    return
-  }
+    setPasswordError('')
+    // Check if the user has entered both fields correctly
+    if ('' === email) {
+      setEmailError('Please enter your email')
+      return
+    }
 
-  if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-    setEmailError('Please enter a valid email')
-    return
-  }
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      setEmailError('Please enter a valid email')
+      return
+    }
 
-  if ('' === password) {
-    setPasswordError('Please enter a password')
-    return
-  }
+    if ('' === password) {
+      setPasswordError('Please enter a password')
+      return
+    }
 
-  if (password.length < 5) {
-    setPasswordError('The password must be 6 characters or longer')
-    return
-  }
+    if (password.length < 5) {
+      setPasswordError('The password must be 6 characters or longer')
+      return
+    }
 
-  for (var p of userEmail){
-    if (p.properties.Email.rich_text[0]?.plain_text === email) {
-      userID = p.id
-      console.log(userID)
+    for (var p of userEmail) {
+      if (p.properties.Email.rich_text[0]?.plain_text === email) {
+        userID = p.id
+        console.log(userID)
 
         if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
           console.log(p.properties.Name.title[0]?.plain_text)
@@ -61,18 +61,21 @@ import React, { useState} from 'react'
           window.location.reload()
           return
         }
-  }
-}
-if (p.properties.Password.rich_text[0]?.plain_text !== password){
-  setMessage(`Fel Lösenord eller Email`)
-  return
-}
+
+      }
+    }
+    if (p.properties.Password.rich_text[0]?.plain_text !== password) {
+      setMessage(`Fel Lösenord eller Email`)
+      return
+    }
+
+
   }
 
   
   return (
-    
-    <div className= "mainContainer">
+
+    <div className="login-container">
       <div className="titleContainer">
         <h2>Log in</h2>
       </div>
@@ -96,14 +99,14 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
         />
         <label className="errorLabel">{passwordError}</label>
       </div>
-      <br/>
+      <br />
       <div className="inputContainer">
-        <input className= "inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
+        <input className="inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
       </div>
       {message}
     </div>
   )
-  
+
 }
 
 

@@ -24,6 +24,7 @@ const TimeReport = () => {
     const hoursInput = parseFloat(hours);
  
 
+
     const addToDatabase = () => {
         const payload = {
             "Hours": {
@@ -47,7 +48,7 @@ const TimeReport = () => {
                     {
                         "id": projectId
                     },
-                ], 
+                ],
                 "has_more": false
             },
             "Person": {
@@ -95,7 +96,7 @@ const TimeReport = () => {
         };
 
         axios.post('http://localhost:3001/api/create_timereports', payload)
-            .then(function (response){
+            .then(function (response) {
                 console.log(response);
             })
             .catch(function (error) {
@@ -107,22 +108,22 @@ const TimeReport = () => {
         const payload = {
 
         };
-      
-          axios.post('http://localhost:3001/api/project', payload)
+
+        axios.post('http://localhost:3001/api/project', payload)
             .then(response => {
-              setProjectData(response.data);
-              console.log('Data hämtad från project:', response.data);
+                setProjectData(response.data);
+                console.log('Data hämtad från project:', response.data);
             })
             .catch(error => {
-              console.error('Fel vid hämtning från Notion:', error);
+                console.error('Fel vid hämtning från Notion:', error);
             });
     };
-        
+
     const fetchPeopleData = () => {
         const payload = {
-    
+
         };
-          
+
         axios.post('http://localhost:3001/api/people', payload)
             .then(response => {
                 setPeopleData(response.data);
@@ -132,16 +133,16 @@ const TimeReport = () => {
             .catch(error => {
                 console.error('Fel vid hämtning från Notion:', error);
             });
-    };  
-    
+    };
+
     useEffect(() => {
         fetchProjectData();
         fetchPeopleData();
     }, []);
 
-    const ShowProject = () =>{
+    const ShowProject = () => {
         let projectArray = [];
-    
+
         if (projectData && Array.isArray(projectData.results)) {
             projectArray = projectData.results.map((project) => {
                 const projectName = project.properties.Projectname.title[0]?.plain_text;
@@ -150,6 +151,7 @@ const TimeReport = () => {
         }
         return projectArray;
     }
+
 
     const handleSelect = (e) => {
         const projectName = e.target.value;
@@ -163,6 +165,7 @@ const TimeReport = () => {
             setProjectId(selectedProject.id);
         }  
     };
+
 
     const submitAddToDatabase = () =>{
         setFormSubmitted(true);
@@ -178,55 +181,70 @@ const TimeReport = () => {
 }
     return (
         <div className="mainContainer">
-            <div className="titleContainer">
-                <h2>Tidrapportera</h2>
-            </div>
-            <div className="inputContainer">
+
+
+
+
+            <div className="report-form">
+                <div className="title-form">
+                    Time report
+                </div> <br />
+                <div className="projectDropdown">
+                    <label>Projekt</label><br />
+                    <select onChange={handleSelect}>
+                        {ShowProject().map((project) => (
+                            <option key={project} value={project}>
+                                {project}
+                            </option>
+                        ))}
+                    </select><br />
+                    
+                    <br /><label>Datum</label><br />
+                    <input type="date"
+                        value={dateInput}
+                        onChange={(ev) => setDateInput(ev.target.value)}
+
+                    /></div>
+                <div className="inputContainer">
+                    <br /><label>Antal Timmar</label> <input
+                        value={hours}
+                        placeholder="Rapportera timmar"
+                        onChange={(ev) => setHours(ev.target.value)}//ändrar state på hours
+                    />
+                </div>
+                <br />
+                      
+                       <div className="inputContainer">
                 <input
                     value={activityComment}
                     placeholder="Ange aktivitet"
                     onChange={(ev) => setActivityComment(ev.target.value)}
                 />
             </div>
-            <div className="inputContainer">
-                <input
-                    value={hours}
-                    placeholder="Antal timmar"
-                    onChange={(ev) => setHours(ev.target.value)}
-                />
-            </div>
-            <div className="inputContainer">
-                <input
-                    value={textComment}
-                    placeholder="Skriv en kommentar"
-                    onChange={(ev) => setTextComment(ev.target.value)}
-                />
-            </div>
-            <div className="projectDropdown">
-                <label>Projekt</label>
-                <select onChange = {handleSelect}>
-                <option value = "">Välj ett projekt</option>
-                    {ShowProject().map((project) => (
-                        <option key = {project} value={project}>
-                            {project}
-                        </option>
-                    ))}
-                </select>
-                <label>Datum</label>
-                <input type = "date"
-                    value={dateInput}
-                    onChange={(ev) => setDateInput(ev.target.value)}
-                />  
-            </div>
-            <button onClick={submitAddToDatabase}>Skicka</button>
 
-            {formSubmitted && (projectName === null || dateInput === null) && (
+                <div className="inputContainer">
+                    <label>Kommentar</label>
+                    <input
+                        value={textComment}
+                        placeholder="Skriv en kommentar"
+                        onChange={(ev) => setTextComment(ev.target.value)}//ändrar state på textcomment
+                    />
+
+                    <br />
+
+                </div>
+                <br /><button className="submit-button" onClick={submitAddToDatabase}>Submit</button>
+
+  {formSubmitted && (projectName === null || dateInput === null) && (
                 <Alert severity="error">Du måste välja projekt och datum.</Alert>
             )}
             {submitSuccess && (
                 <Alert severity="success">Tidrapporten har registrerats!</Alert>
             )} 
-        </div>
+            </div>
+        </div >
+
+
     );
 }
 export default TimeReport;
