@@ -30,7 +30,7 @@ const ShowProjects = () => {
       fetchDataFromNotion();
     }, []);
     if (!data || !Array.isArray(data?.results)) {
-      return <p>Laddar data eller ingen data att visa...</p>;
+      return;
     }
             let activeProjects;
 

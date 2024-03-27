@@ -181,10 +181,6 @@ const TimeReport = () => {
 }
     return (
         <div className="mainContainer">
-
-
-
-
             <div className="report-form">
                 <div className="title-form">
                     Time report

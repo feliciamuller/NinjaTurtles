@@ -52,11 +52,11 @@ const Login = (props) => {
 
           if (p.properties.UserID.rich_text[0]?.plain_text === "chef")
           {
-            localStorage.setItem("chefFunctions", "true")
+            localStorage.setItem("bossFunctions", "true")
           }
           if (p.properties.UserID.rich_text[0]?.plain_text === "projektledare")
           {
-            localStorage.setItem("projektledareFunctions", "true")
+            localStorage.setItem("projectleaderFunctions", "true")
           }
           window.location.reload()
           return
