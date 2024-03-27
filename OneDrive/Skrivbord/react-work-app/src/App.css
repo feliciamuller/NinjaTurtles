@@ -250,6 +250,10 @@
 
 }
 
+.showHam {
+  opacity: 0;
+
+
 .submitUpdateButton {
   font-family: "Quicksand", sans-serif;
   background-color: #8c3851;
