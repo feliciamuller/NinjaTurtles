@@ -17,6 +17,7 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
+
       <div className='showHam'>
       <HamMenu/>
       </div>
@@ -33,6 +34,7 @@ function App() {
         <Route path="/Visa_Tidrapporter" element={<FetchTime/>} />
       </Routes>
         </BrowserRouter>
+
     </div>
   );
 }

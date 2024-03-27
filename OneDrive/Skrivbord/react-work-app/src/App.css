@@ -1,5 +1,5 @@
 /*targets screens with a maximum width of 768 pixels.*/
-@media (max-width: 768px) {
+@media (max-width: 360px) {
 
   .report-form {
     position: fixed !important;
@@ -9,7 +9,6 @@
 
   .logOut-button {
     position: fixed !important;
-    top: 607px !important;
     right: 19px !important;
   }
 
@@ -55,8 +54,8 @@
 .logOut-button {
   font-family: "Quicksand", sans-serif;
   position: fixed;
-  top: 60px;
-  right: 100px;
+  right: 50px;
+  bottom: 38px;
   background-color: #8c3851;
   color: white;
   padding: 3px 20px;
@@ -65,7 +64,6 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-
 }
 
 .logOut-button:hover {
@@ -239,6 +237,10 @@
 
 }
 
+.navLink li {
+  text-decoration: none;
+}
+
 .navLink:hover {
   color: rgb(182, 113, 96);
 }
@@ -247,6 +249,28 @@
   color: rgb(182, 113, 96);
 
 }
+
 .showHam {
   opacity: 0;
+
+
+.submitUpdateButton {
+  font-family: "Quicksand", sans-serif;
+  background-color: #8c3851;
+  color: white;
+  padding: 3px 20px;
+  border: none;
+  border-radius: 29px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-left: 82px;
+  margin-top: 34px;
+}
+
+.userName {
+  margin-left: -1332px;
+  margin-top: 105px;
+  font-size: 30px;
+  color: rgb(182, 113, 96);
 }
