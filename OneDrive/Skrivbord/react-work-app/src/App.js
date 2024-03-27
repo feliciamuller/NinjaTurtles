@@ -6,7 +6,6 @@ import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
 import TimeReport from './components/TimeReport';
 import UpdateProjectHours from './components/UpdateProjectHours';
-import UserData from './components/UserData';
 import ShowProjects from './components/Projects';
 import FetchTime from './components/FetchTime';
 
@@ -18,19 +17,18 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-      <header>
-        <Menu/>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-        <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-        <Route path='/ProjectHours' element = {<UpdateProjectHours/>}/>
-        <Route path="/UserData" element={<UserData />} />
-        <Route path="/Projects" element={<ShowProjects />} />
-        <Route path="/TimeReport" element={<TimeReport />} />
-        <Route path="/FetchTime" element={<FetchTime/>} />
-      </Routes>
-        </BrowserRouter>
+        <header>
+          <Menu />
+        </header>
+        <Routes>
+          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+          <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+          <Route path='/ProjectHours' element={<UpdateProjectHours />} />
+          <Route path="/Projects" element={<ShowProjects />} />
+          <Route path="/TimeReport" element={<TimeReport />} />
+          <Route path="/FetchTime" element={<FetchTime />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

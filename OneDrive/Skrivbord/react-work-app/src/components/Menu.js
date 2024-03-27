@@ -10,25 +10,25 @@ const Menu = () => {
     let login = <Link to="/Login" className="navLink">Log in</Link>;
     let projects;
     let fetchtime;
-    let loggedInUser //EZ
+    let loggedInUser
     let timereports;
     let projectHours;
 
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
-        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGOUT</button>
+        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGOUt</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
 
-        loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
-        fetchtime = <Link to ="/FetchTime" className="navlink">FetchTime</Link>
+        loggedInUser = <div className="userName"> {localStorage.getItem("userName")}</div>
+        fetchtime = <Link to="/FetchTime" className="navLink">FetchTime</Link>
 
-        timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
-        projectHours = <Link to ="/ProjectHours" className = "navLink">ProjectHours</Link>
-      }
+        timereports = <Link to="/TimeReport" className="navLink">TimeReport</Link>
+        projectHours = <Link to="/ProjectHours" className="navLink">ProjectHours</Link>
+    }
 
     return (
         <div className="navbar">
-            <div className="menuContainer"> 
+            <div className="menuContainer">
                 <h2 className="headerName">NINJAS PORTAL</h2>
                 <ul className="navLinks">
                     <li>
@@ -43,17 +43,8 @@ const Menu = () => {
                     <li>
                         {timereports}
                     </li>
-
-
                     <li>
                         {fetchtime}
-                    </li>
-                 
-
-
-
-                    <li>
-                        <Link to="/Comment" className="navLink">Comment</Link>
                     </li>
                     <li>
                         {projectHours}
@@ -62,7 +53,7 @@ const Menu = () => {
                 {logOut}
                 {/* Här ska inloggings markör vara */}
                 {loggedInUser}
-            
+
             </div>
         </div>
     )
