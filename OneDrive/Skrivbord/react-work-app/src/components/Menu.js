@@ -9,12 +9,14 @@ const Menu = () => {
     let login = <Link to="/Login" className="navLink">Log in</Link>;
     let projects;
     let timereports;
+    let projectHours;
 
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
         logOut = <button onClick={onButtonClick}>Log Out</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
         timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
+        projectHours = <Link to ="/ProjectHours" className = "navLink">ProjectHours</Link>
       }
     return (
         <div className="navbar">
@@ -36,6 +38,10 @@ const Menu = () => {
 
                     <li>
                         <Link to="/Comment" className="navLink">Comment</Link>
+                    </li>
+
+                    <li>
+                        {projectHours}
                     </li>
                 </ul>
                 {logOut}

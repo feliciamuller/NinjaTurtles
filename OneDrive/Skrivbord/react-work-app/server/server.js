@@ -16,6 +16,12 @@ const notion = new Client({
 const PROJECTS_DATABASE_ID = process.env.NOTION_DATABASE_PEOPLE; // Använd miljövariabler även här
 const PROJECTS_DATABASE_ID2 = process.env.NOTION_DATABASE_PROJECT;
 const PROJECTS_DATABASE_ID3 = process.env.NOTION_DATABASE_TIMEREPORTS;
+const MY_FIRST_PROJECT = process.env.NOTION_PAGES_MY_FIRST_PROJECT;
+const ANOTHER_PROJECT = process.env.NOTION_PAGES_ANOTHER_PROJECT
+const THE_BEST_PROJECT = process.env.NOTION_PAGES_THE_BEST_PROJECT;
+const A_NEW_PROJECT = process.env.NOTION_PAGES_A_NEW_PROJECT;
+
+
 // Express route-hanterare
 
 app.post('/api/people', async (req, res) => {
@@ -128,6 +134,59 @@ app.post('/api/update_timereports_comment', async (req, res) => {
       properties: req.body
     });
     console.log(update_timereports_comment);
+  } catch (error) {
+    console.error(error.body);
+  }
+});
+
+
+app.post('/api/update_project_myfirstproject', async (req, res) => {
+  try {
+    const pageId = MY_FIRST_PROJECT
+    const update_project = await notion.pages.update({
+      page_id: pageId,
+      properties: req.body
+    });
+    console.log(update_project);
+  } catch (error) {
+    console.error(error.body);
+  }
+});
+
+app.post('/api/update_project_anotherproject', async (req, res) => {
+  try {
+    const pageId = ANOTHER_PROJECT
+    const update_project = await notion.pages.update({
+      page_id: pageId,
+      properties: req.body
+    });
+    console.log(update_project);
+  } catch (error) {
+    console.error(error.body);
+  }
+});
+
+app.post('/api/update_project_thebestproject', async (req, res) => {
+  try {
+    const pageId = THE_BEST_PROJECT
+    const update_project = await notion.pages.update({
+      page_id: pageId,
+      properties: req.body
+    });
+    console.log(update_project);
+  } catch (error) {
+    console.error(error.body);
+  }
+});
+
+app.post('/api/update_project_anewproject', async (req, res) => {
+  try {
+    const pageId = A_NEW_PROJECT 
+    const update_project = await notion.pages.update({
+      page_id: pageId,
+      properties: req.body
+    });
+    console.log(update_project);
   } catch (error) {
     console.error(error.body);
   }
