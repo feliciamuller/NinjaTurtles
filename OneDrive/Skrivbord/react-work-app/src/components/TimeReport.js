@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import Alert from '@mui/material/Alert';
 
 const TimeReport = () => {
+      const navigate = useNavigate();
+    if (localStorage.getItem("loggedIn") === null) {
+      navigate("/")
+    }
+  
     const [hours, setHours] = useState(null);
     const [textComment, setTextComment] = useState(null);
     const [projectName, setProjectName] = useState(null);
@@ -16,7 +22,8 @@ const TimeReport = () => {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [activityComment, setActivityComment] = useState(null);
     const hoursInput = parseFloat(hours);
-    
+ 
+
     const addToDatabase = () => {
         const payload = {
             "Hours": {

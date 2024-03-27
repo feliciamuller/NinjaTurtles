@@ -8,6 +8,7 @@ import React, { useState} from 'react'
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState("")
+  
 
   //Gets the database arrays from NotionDataReader with props
   let userEmail = props.Email;
@@ -45,10 +46,20 @@ import React, { useState} from 'react'
         if (p.id === userID && p.properties.Password.rich_text[0]?.plain_text === password) {
           console.log(p.properties.Name.title[0]?.plain_text)
           localStorage.setItem("userName", p.properties.Name.title[0]?.plain_text)
-          localStorage.setItem("userID", JSON.stringify(userID))
+          localStorage.setItem("userID", userID)
           localStorage.setItem("loggedIn", "true")
+
+
+          if (p.properties.UserID.rich_text[0]?.plain_text === "chef")
+          {
+            localStorage.setItem("chefFunctions", "true")
+          }
+          if (p.properties.UserID.rich_text[0]?.plain_text === "projektledare")
+          {
+            localStorage.setItem("projektledareFunctions", "true")
+          }
           window.location.reload()
-          return 
+          return
         }
   }
 }
@@ -56,8 +67,9 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
   setMessage(`Fel Lösenord eller Email`)
   return
 }
-
   }
+
+  
   return (
     
     <div className= "mainContainer">
@@ -96,4 +108,5 @@ if (p.properties.Password.rich_text[0]?.plain_text !== password){
 
 
 
+  
 export default Login
