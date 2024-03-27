@@ -5,17 +5,16 @@ import { useState } from 'react'
 import LoginData from "./components/LoginData"
 import Menu from './components/Menu';
 import TimeReport from './components/TimeReport';
-import UserPage from './components/UserPage';
+import UpdateProjectHours from './components/UpdateProjectHours';
 import UserData from './components/UserData';
 import ShowProjects from './components/Projects';
+import FetchTime from './components/FetchTime';
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [email, setEmail] = useState('')
-  // let login = <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-  // if (localStorage.getItem("loggedIn") === "true") {
-  //   login = <Route path="/LogOut" element={<LogOut />} />;
-  // }
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -25,12 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
         <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-
-        <Route path="/UserPage" element={<UserPage />} />
+        <Route path='/ProjectHours' element = {<UpdateProjectHours/>}/>
         <Route path="/UserData" element={<UserData />} />
         <Route path="/Projects" element={<ShowProjects />} />
         <Route path="/TimeReport" element={<TimeReport />} />
-
+        <Route path="/FetchTime" element={<FetchTime/>} />
       </Routes>
         </BrowserRouter>
     </div>

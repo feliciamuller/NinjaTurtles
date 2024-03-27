@@ -1,23 +1,28 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
 
 const TimeReport = () => {
-    const [hours, setHours] = useState('');
-    const [textComment, setTextComment] = useState('');
-    const [projectName, setProjectName] = useState('');
-    const [peopleName, setPeopleName] = useState('');
-    const [projectData, setProjectData] = useState('');
-    const [projectId, setProjectId] = useState('');//jag får inte detta värde att ändra på sig
+      const navigate = useNavigate();
+    if (localStorage.getItem("loggedIn") === null) {
+      navigate("/")
+    }
+  
+    const [hours, setHours] = useState(null);
+    const [textComment, setTextComment] = useState(null);
+    const [projectName, setProjectName] = useState(null);
+    const [projectData, setProjectData] = useState(null);
+    const [projectId, setProjectId] = useState(null);
     const [peopleData, setPeopleData] = useState(null);
-    const [data, setData] = useState(null);
-    const [peopleId, setPeopleId] = useState(null)
-    const [dateInput, setDateInput] = useState(null)
-
-
+    const [peopleId, setPeopleId] = useState(null);
+    const [dateInput, setDateInput] = useState(null);
+    const [formSubmitted, setFormSubmitted] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [activityComment, setActivityComment] = useState(null);
     const hoursInput = parseFloat(hours);
-    // const peopleId = "06e9bb3d-0884-41cb-9207-dc7f2fe1a4be"
-    // const projectId = "7c93b28e-6245-4e96-a192-aa79be6d6ac9"
+ 
 
 
     const addToDatabase = () => {
@@ -46,7 +51,6 @@ const TimeReport = () => {
                 ],
                 "has_more": false
             },
-
             "Person": {
                 "id": "cL%5DY",
                 "type": "relation",
@@ -66,9 +70,29 @@ const TimeReport = () => {
                     "time_zone": null
                 }
             },
-
-            //BEHÖVER LÄGGA IN DATUM OCH ACTIVITY 
-
+            "Activity": {
+                "id": "title",
+                "type": "title",
+                "title": [
+                    {
+                        "type": "text",
+                        "text": {
+                            "content": activityComment,
+                            "link": null
+                        },
+                        "annotations": {
+                            "bold": false,
+                            "italic": false,
+                            "strikethrough": false,
+                            "underline": false,
+                            "code": false,
+                            "color": "default"
+                        },
+                        "plain_text": activityComment,
+                        "href": null
+                    }
+                ]
+            }
         };
 
         axios.post('http://localhost:3001/api/create_timereports', payload)
@@ -78,7 +102,6 @@ const TimeReport = () => {
             .catch(function (error) {
                 console.error('Error while adding to database:', error, projectId);
             });
-
     }
 
     const fetchProjectData = () => {
@@ -104,6 +127,7 @@ const TimeReport = () => {
         axios.post('http://localhost:3001/api/people', payload)
             .then(response => {
                 setPeopleData(response.data);
+                setPeopleId(JSON.parse(localStorage.getItem("userID")))
                 console.log('Data hämtad från people:', response.data);
             })
             .catch(error => {
@@ -125,49 +149,39 @@ const TimeReport = () => {
                 return projectName;
             })
         }
-
         return projectArray;
     }
 
-    const ShowPeople = () => {
-        let peopleArray = [];
-
-        if (peopleData && Array.isArray(peopleData.results)) {
-            peopleArray = peopleData.results.map((project) => {
-                const peopleName = project.properties.Name.title[0]?.plain_text;
-                return peopleName;
-            })
-        }
-
-        return peopleArray;
-    }
 
     const handleSelect = (e) => {
         const projectName = e.target.value;
-        setProjectName(projectName);
-        console.log(projectName)
 
-        const selectedProject = projectData.results.find(project => project.properties.Projectname.title[0]?.plain_text === projectName);
-        setProjectId(selectedProject.id);
-        console.log(selectedProject.id)
+        if(projectName === ""){
+            setProjectName(null);
+        }
+        else {
+            const selectedProject = projectData.results.find(project => project.properties.Projectname.title[0]?.plain_text === projectName);
+            setProjectName(projectName);
+            setProjectId(selectedProject.id);
+        }  
     };
 
-    const handleSelectPeople = (e) => {
-        const peopleName = e.target.value;
-        setPeopleName(peopleName)
-        console.log(peopleName)
 
-        const selectedPerson = peopleData.results.find(people => people.properties.Name.title[0]?.plain_text === peopleName)
-        setPeopleId(selectedPerson.id)
+    const submitAddToDatabase = () =>{
+        setFormSubmitted(true);
 
-    };
-
-    const submitAddToDatabase = () => {
-        addToDatabase();
-    }
-
+        if (projectName === null || dateInput === null){ 
+            return false;
+        }
+        else {
+            addToDatabase();
+            setSubmitSuccess(true);
+            return true;
+        }
+}
     return (
         <div className="mainContainer">
+
 
 
 
@@ -184,14 +198,7 @@ const TimeReport = () => {
                             </option>
                         ))}
                     </select><br />
-                    <br /> <label>Person</label><br />
-                    <select onChange={handleSelectPeople}>
-                        {ShowPeople().map((people) => (
-                            <option key={people} value={people}>
-                                {people}
-                            </option>
-                        ))}
-                    </select><br />
+                    
                     <br /><label>Datum</label><br />
                     <input type="date"
                         value={dateInput}
@@ -206,6 +213,14 @@ const TimeReport = () => {
                     />
                 </div>
                 <br />
+                      
+                       <div className="inputContainer">
+                <input
+                    value={activityComment}
+                    placeholder="Ange aktivitet"
+                    onChange={(ev) => setActivityComment(ev.target.value)}
+                />
+            </div>
 
                 <div className="inputContainer">
                     <label>Kommentar</label>
@@ -219,10 +234,17 @@ const TimeReport = () => {
 
                 </div>
                 <br /><button className="submit-button" onClick={submitAddToDatabase}>Submit</button>
+
+  {formSubmitted && (projectName === null || dateInput === null) && (
+                <Alert severity="error">Du måste välja projekt och datum.</Alert>
+            )}
+            {submitSuccess && (
+                <Alert severity="success">Tidrapporten har registrerats!</Alert>
+            )} 
             </div>
         </div >
 
+
     );
 }
-
 export default TimeReport;
