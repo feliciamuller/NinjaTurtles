@@ -11,6 +11,7 @@ const Menu = () => {
     let fetchtime;
     let loggedInUser //EZ
     let timereports;
+    let projectHours;
 
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
@@ -20,6 +21,7 @@ const Menu = () => {
         fetchtime = <Link to ="/FetchTime" className="navlink">FetchTime</Link>
 
         timereports = <Link to ="/TimeReport" className="navLink">TimeReport</Link>
+        projectHours = <Link to ="/ProjectHours" className = "navLink">ProjectHours</Link>
       }
     return (
         <div className="navbar">
@@ -49,7 +51,9 @@ const Menu = () => {
                     <li>
                         <Link to="/Comment" className="navLink">Comment</Link>
                     </li>
-
+                    <li>
+                        {projectHours}
+                    </li>
                 </ul>
                 {logOut}
                 {/* Här ska inloggings markör vara */}
