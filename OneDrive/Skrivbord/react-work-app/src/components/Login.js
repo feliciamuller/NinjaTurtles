@@ -49,12 +49,14 @@ const Login = (props) => {
           localStorage.setItem("userID", JSON.stringify(userID))
           localStorage.setItem("loggedIn", "true")
 
-
-          if (p.properties.UserID.rich_text[0]?.plain_text === "chef") {
-            localStorage.setItem("chefFunctions", "true")
+          if (p.properties.UserID.rich_text[0]?.plain_text === "chef")
+          {
+            localStorage.setItem("bossFunctions", "true")
           }
-          if (p.properties.UserID.rich_text[0]?.plain_text === "projektledare") {
-            localStorage.setItem("projektledareFunctions", "true")
+          if (p.properties.UserID.rich_text[0]?.plain_text === "projektledare")
+          {
+            localStorage.setItem("projectleaderFunctions", "true")
+
           }
           window.location.reload()
           return

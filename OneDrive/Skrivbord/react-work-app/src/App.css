@@ -227,6 +227,10 @@
   justify-content: center;
 }
 
+.showHam {
+  opacity: 0;
+
+
 .submitUpdateButton {
   font-family: "Quicksand", sans-serif;
   background-color: rgb(180, 126, 113);

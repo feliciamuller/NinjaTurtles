@@ -7,7 +7,7 @@ const Menu = () => {
         localStorage.clear()
         window.location.reload()
     }
-    let login = <Link to="/Login" className="navLink">Log in</Link>;
+    let login = <Link to="/Logga_in" className="navLink">Log in</Link>;
     let projects;
     let fetchtime;
     let loggedInUser
@@ -19,12 +19,18 @@ const Menu = () => {
         logOut = <button className="logOut-button" onClick={onButtonClick}>LOGGA UT</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
 
-        loggedInUser = <div className="userName"> {localStorage.getItem("userName")}</div>
-        fetchtime = <Link to="/FetchTime" className="navLink">FetchTime</Link>
+        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGOUT</button>
+        projects = <Link to="/Visa_Projekt" className="navLink">Projects</Link>;
 
-        timereports = <Link to="/TimeReport" className="navLink">TimeReport</Link>
-        projectHours = <Link to="/ProjectHours" className="navLink">ProjectHours</Link>
-    }
+        loggedInUser = <div> {localStorage.getItem("userName")}</div> //EZ
+        timereports = <Link to ="/Rapportera_tid" className="navLink">TimeReport</Link>
+
+        if (localStorage.getItem("bossFunctions") === "true") {fetchtime = <Link to ="Visa_Tidrapporter" className="navlink">FetchTime</Link>}
+
+        if (localStorage.getItem("projectleaderFunctions") === "true") {projectHours = <Link to ="/Uppdatera_Projekttid" className = "navLink">ProjectHours</Link>}
+
+      }
+
 
     return (
         <div className="navbar">

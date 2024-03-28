@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 
 const fetchTimeReports = async (startDate, endDate) => {
-   
 
     const payload = {
         filter: {
@@ -62,6 +61,10 @@ const calculateTimeReported = async (startDate, endDate) => {
 };
 
 const TimeReport = () => {
+    const navigate = useNavigate();
+    if (localStorage.getItem("loggedIn") === null) {
+        navigate("/")
+      }
     const [totalTimeReported, setTotalTimeReported] = useState({});
     const [peopleData, setPeopleData] = useState([]);
     const [startDate, setStartDate] = useState('2024-03-18'); //EZ

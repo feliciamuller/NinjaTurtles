@@ -8,7 +8,7 @@ import TimeReport from './components/TimeReport';
 import UpdateProjectHours from './components/UpdateProjectHours';
 import ShowProjects from './components/Projects';
 import FetchTime from './components/FetchTime';
-
+import HamMenu from './components/HamburgerMenu/Menu';
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -17,18 +17,24 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-        <header>
-          <Menu />
-        </header>
-        <Routes>
-          <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
-          <Route path="/Login" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-          <Route path='/ProjectHours' element={<UpdateProjectHours />} />
-          <Route path="/Projects" element={<ShowProjects />} />
-          <Route path="/TimeReport" element={<TimeReport />} />
-          <Route path="/FetchTime" element={<FetchTime />} />
-        </Routes>
-      </BrowserRouter>
+
+      <div className='showHam'>
+      <HamMenu/>
+      </div>
+
+      <header>
+        <Menu/>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+        <Route path="/Logga_in" element={<LoginData setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        <Route path='/Uppdatera_Projekttid' element = {<UpdateProjectHours/>}/>
+        <Route path="/Visa_Projekt" element={<ShowProjects />} />
+        <Route path="/Rapportera_tid" element={<TimeReport />} />
+        <Route path="/Visa_Tidrapporter" element={<FetchTime/>} />
+      </Routes>
+        </BrowserRouter>
+
     </div>
   );
 }

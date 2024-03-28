@@ -30,7 +30,7 @@ const ShowProjects = () => {
     fetchDataFromNotion();
   }, []);
   if (!data || !Array.isArray(data?.results)) {
-    return <p>Laddar data eller ingen data att visa...</p>;
+    return;
   }
   let activeProjects;
 
@@ -39,6 +39,7 @@ const ShowProjects = () => {
     if (String(projectDate) > today.toLocaleDateString()) {
       let Projects = p.properties.Projectname.title[0]?.plain_text
       return Projects
+
     }
     return activeProjects
   })
