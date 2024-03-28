@@ -12,12 +12,9 @@ function Home(props) {
   }
 
   return (
-
     <div className="welcome-container">
-      <div className="welcome-title">
-        <h2>Welcome {localStorage.getItem("userName")}</h2>
-        <h3>This is the home page</h3>
-
+      <div className="welcome-text">
+        <h2>Välkommen {localStorage.getItem("userName")}</h2>
       </div>
     </div>
   )

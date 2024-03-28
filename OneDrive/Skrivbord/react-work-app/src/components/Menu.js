@@ -16,7 +16,7 @@ const Menu = () => {
 
     if (localStorage.getItem("loggedIn") === "true") {
         login = ""
-        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGOUt</button>
+        logOut = <button className="logOut-button" onClick={onButtonClick}>LOGGA UT</button>
         projects = <Link to="/Projects" className="navLink">Projects</Link>;
 
         loggedInUser = <div className="userName"> {localStorage.getItem("userName")}</div>
