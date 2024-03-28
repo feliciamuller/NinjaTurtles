@@ -11,7 +11,7 @@ import { MenuDataBoss } from "./MenuDataBoss";
 import { MenuDataLeader } from "./MenuDataLeader";
  
 const Nav = styled.div`
-    background: #15171c;
+    background: #B67160;
     height: 80px;
     display: flex;
     justify-content: flex-start;
@@ -29,8 +29,8 @@ const NavIcon = styled(NavLink)`
 `;
  
 const SidebarNav = styled.nav`
-    background: #15171c;
-    width: 220px;
+    background: #B67160;
+    width: 160px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -84,7 +84,7 @@ const HamMenu = () => {
     })}
     return (
         <>
-            <IconContext.Provider value={{ color: "red" }}>
+            <IconContext.Provider value={{ color: "black" }}>
                 <Nav>
                     <NavIcon to="#">
                         <FaIcons.FaBars

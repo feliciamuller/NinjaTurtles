@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 
 const Login = (props) => {
-
-
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState("")
-
 
   //Gets the database arrays from NotionDataReader with props
   let userEmail = props.Email;
@@ -72,14 +69,10 @@ const Login = (props) => {
 
   }
 
-
   return (
-
     <div className="login-container">
-      <div className="login-text">
-        <h2>Logga in</h2>
-      </div>
-      <div className="login-input">
+        <h2 className="login-text">Logga in</h2>
+      <section className="login-input">
         <input
           value={email}
           placeholder="Enter your email here"
@@ -87,9 +80,9 @@ const Login = (props) => {
           className="inputBox"
         />
         <label className="errorLabel">{emailError}</label>
-      </div>
+      </section>
       <br />
-      <div className="login-input">
+      <section className="login-input">
         <input
           type="password"
           value={password}
@@ -98,11 +91,11 @@ const Login = (props) => {
           className={'inputBox'}
         />
         <label className="errorLabel">{passwordError}</label>
-      </div>
+      </section>
       <br />
-      <div className="login-input">
+      <section className="login-input">
         <input className="inputButton" type="button" onClick={onButtonClick} value={'LOGGA IN'}/>
-      </div>
+      </section>
       {message}
     </div>
   )

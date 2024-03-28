@@ -155,10 +155,8 @@ const UpdateProjectHours = () =>{
     return (
         <div className="mainContainer">
             <div className="projectContainer">
-            <div className="title-text">
-                <h3>Uppdatera timmar på ett projekt</h3>
-            </div>
-            <div className="inputContainer">
+            <h3 className="title-text">Uppdatera timmar på ett projekt</h3>
+            <section className="inputContainer">
                 <label>Projekt</label>
                 <select onChange={handleSelect}>
                     <option value="">Välj ett projekt du vill uppdatera tiden på</option>
@@ -168,18 +166,18 @@ const UpdateProjectHours = () =>{
                         </option>
                     ))}
                 </select>
-                </div>
-                <div className="inputContainer">
+                </section>
+                <section className="inputContainer">
                     <label>Ange timmar</label>
                     <input
                         value={projectHours}
                         placeholder="Antal timmar"
                         onChange={(ev) => setProjectHours(ev.target.value)}
                     />
-                </div>
-                <div className="inputContainer">
+                </section>
+                <section className="inputContainer">
                 <button className="submit-button" onClick={submitAddToDatabase}>SKICKA</button>
-                </div>
+                </section>
             {submitAddToDatabase && (projectName === "notValid") && (
                 <Alert severity="error">Du måste välja ett projekt</Alert>
             )}

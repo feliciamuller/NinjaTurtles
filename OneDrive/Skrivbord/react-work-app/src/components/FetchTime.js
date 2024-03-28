@@ -98,24 +98,22 @@ const TimeReport = () => {
     return (
         <div className="mainContainer">
             <div className="report-form">
-            <div className="title-text">
-                <h3> Hämta tidrapport</h3>
-            </div>
+                <h3 className="title-text"> Hämta tidrapport</h3>
             <form>
-                <div className="inputContainer">
+                <section className="inputContainer">
                 <label>
                     Startdatum:
                 </label>
                 <input type="date" value={startDate} onChange={e=> setStartDate(e.target.value)} />
-                </div>
-                <div className="inputContainer">
+                </section>
+                <section className="inputContainer">
                 <label>
                     Slutdatum:
                 </label>
                 <input type="date" value={endDate} onChange={e=> setEndDate(e.target.value)}  />
-                </div>
+                </section>
             </form>
-            <article className="timereportInfo">
+            <section className="timereportInfo">
             {peopleData && peopleData.results && totalTimeReported && peopleData.results.map((people) => {
                 const personTimeReport = totalTimeReported[people.id];
                 if (personTimeReport) {
@@ -127,7 +125,7 @@ const TimeReport = () => {
                 }
                 return null;
             })}
-            </article>
+            </section>
             </div>
         </div>
     );

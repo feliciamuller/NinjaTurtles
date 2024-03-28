@@ -17,13 +17,11 @@ function App() {
   return (
     <div className='App'>
       <BrowserRouter>
-
-      <div className='showHam'>
-      <HamMenu/>
-      </div>
-
       <header>
         <Menu/>
+        <div className="showHamburger">
+      <HamMenu/>
+      </div>
       </header>
       <Routes>
         <Route path="/" element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
