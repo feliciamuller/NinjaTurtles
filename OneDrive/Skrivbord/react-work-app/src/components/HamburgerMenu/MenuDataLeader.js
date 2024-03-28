@@ -1,22 +1,22 @@
 
 export const MenuDataLeader = [
 	{
-		title: "Startsida",
+		title: "Hem",
 		path: "/",
 
 	},
 	{
-		title: "Visa Projekt",
+		title: "Visa projekt",
 		path: "/Visa_Projekt",
 
 	},	
     {
-		title: "Rapportera tid",
+		title: "Tidrapportera",
 		path: "/Rapportera_tid",
 
 	},
 	{
-		title: "Uppdatera Projekt",
+		title: "Uppdatera projekttid",
 		path: "/Uppdatera_Projekttid",
 
 	},

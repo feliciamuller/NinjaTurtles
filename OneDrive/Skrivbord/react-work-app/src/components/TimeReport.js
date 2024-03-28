@@ -157,7 +157,7 @@ const TimeReport = () => {
     const handleSelect = (e) => {
         const projectName = e.target.value;
 
-        if (projectName === "") {
+        if (projectName === "notValid") {
             setProjectName(null);
         }
         else {
@@ -180,47 +180,46 @@ const TimeReport = () => {
             return true;
         }
     }
-    //byta namn på titleform till titlecontainer
+
     return (
         <div className="mainContainer">
             <div className="report-form">
-                <div className="title-text">
-                    <h3>Tidrapportera</h3>
-                </div>
-                <div className="inputContainer">
+                <h3 className="title-text">Tidrapportera</h3>
+                <section className="inputContainer">
                     <label>Projekt</label>
                     <select onChange={handleSelect}>
+                        <option value="notValid">Välj ett projekt i listan</option>
                         {ShowProject().map((project) => (
                             <option key={project} value={project}>
                                 {project}
                             </option>
                         ))}
                     </select>
-                    </div>
-                    <div className="inputContainer">
+                    </section>
+                    <section className="inputContainer">
                     <label>Datum</label>
                     <input type="date"
                         value={dateInput}
                         onChange={(ev) => setDateInput(ev.target.value)}
 
                     />
-                    </div>
-                    <div className="inputContainer">
-                    <label>Antal Timmar</label> <input
+                    </section>
+                    <section className="inputContainer">
+                    <label>Antal timmar</label> <input
                         value={hours}
                         placeholder="Rapportera timmar"
                         onChange={(ev) => setHours(ev.target.value)}//ändrar state på hours
                     />
-                    </div>
-                    <div className="inputContainer">
+                    </section>
+                    <section className="inputContainer">
                     <label>Ange aktivitet</label>
                     <input
                         value={activityComment}
                         placeholder="Ange aktivitet"
                         onChange={(ev) => setActivityComment(ev.target.value)}
                     />
-                    </div>
-                    <div className="inputContainer">
+                    </section>
+                    <section className="inputContainer">
                     <label>Kommentar</label>
                     <input
                         value={textComment}
@@ -229,7 +228,7 @@ const TimeReport = () => {
                     />
                    <br/>
                     <button className="submit-button" onClick={submitAddToDatabase}>SKICKA</button>
-                    </div>
+                    </section>
 
                 {formSubmitted && (projectName === null || dateInput === null) && (
                     <Alert severity="error">Du måste välja projekt och datum.</Alert>

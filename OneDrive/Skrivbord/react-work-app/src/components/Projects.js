@@ -48,9 +48,7 @@ const ShowProjects = () => {
 
     <div className="mainContainer">
       <div className="projectContainer">
-        <section className="title-text">
-        <h3>Alla projekt</h3>
-        </section>
+        <h3 className="title-text">Alla projekt</h3>
         <article className="projectInfo">
         {data.results.map((p, index) => {
           return (
@@ -62,9 +60,7 @@ const ShowProjects = () => {
           )
         })}
         </article>
-        <section className = "title-text">
-        <h3>Aktiva projekt</h3>
-        </section>
+        <h3 className="title-text">Aktiva projekt</h3>
         <article className="projectInfo">
         {activeProjects.map((a, i) => {
           return (

@@ -1,6 +1,6 @@
 export const MenuDataNotLogged = [
 	{
-		title: "Startsida",
+		title: "Hem",
 		path: "/",
 
 	},

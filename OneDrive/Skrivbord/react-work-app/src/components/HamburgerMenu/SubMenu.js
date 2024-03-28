@@ -4,23 +4,24 @@ import styled from "styled-components";
 
 const SidebarLink = styled(NavLink)`
 	display: flex;
-	color: #e1e9fc;
+	color: #000000;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding: 5px;
 	list-style: none;
 	height: 60px;
 	text-decoration: none;
 	font-size: 18px;
 
 	&:hover {
-		background: #252831;
-		border-left: 4px solid green;
+		background: #E9AEA1;
+		border-left: 4px solid;
 		cursor: pointer;
+		color: #FFFFFF;
 	}
 	
 	&.active {
-		color: green;
+		color: #FFFFFF;
 	}
 `;
 
