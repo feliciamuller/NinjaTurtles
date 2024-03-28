@@ -47,8 +47,11 @@ const ShowProjects = () => {
   return (
 
     <div className="mainContainer">
-      <table className="report-form">
-        <h2>All projects</h2>
+      <div className="projectContainer">
+        <section className="title-text">
+        <h3>Alla projekt</h3>
+        </section>
+        <article className="projectInfo">
         {data.results.map((p, index) => {
           return (
             <tr key={index}>
@@ -58,7 +61,11 @@ const ShowProjects = () => {
             </tr>
           )
         })}
-        <h2>Active Projects</h2>
+        </article>
+        <section className = "title-text">
+        <h3>Aktiva projekt</h3>
+        </section>
+        <article className="projectInfo">
         {activeProjects.map((a, i) => {
           return (
             <tr key={i}>
@@ -68,7 +75,8 @@ const ShowProjects = () => {
             </tr>
           )
         })}
-      </table>
+        </article>
+      </div>
     </div>
 
   )

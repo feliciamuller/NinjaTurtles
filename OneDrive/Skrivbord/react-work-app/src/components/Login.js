@@ -76,10 +76,10 @@ const Login = (props) => {
   return (
 
     <div className="login-container">
-      <div className="titleContainer">
-        <h2>Log in</h2>
+      <div className="login-text">
+        <h2>Logga in</h2>
       </div>
-      <div className="inputContainer">
+      <div className="login-input">
         <input
           value={email}
           placeholder="Enter your email here"
@@ -89,7 +89,7 @@ const Login = (props) => {
         <label className="errorLabel">{emailError}</label>
       </div>
       <br />
-      <div className="inputContainer">
+      <div className="login-input">
         <input
           type="password"
           value={password}
@@ -100,8 +100,8 @@ const Login = (props) => {
         <label className="errorLabel">{passwordError}</label>
       </div>
       <br />
-      <div className="inputContainer">
-        <input className="inputButton" type="button" onClick={onButtonClick} value={'Log in'} />
+      <div className="login-input">
+        <input className="inputButton" type="button" onClick={onButtonClick} value={'LOGGA IN'}/>
       </div>
       {message}
     </div>
