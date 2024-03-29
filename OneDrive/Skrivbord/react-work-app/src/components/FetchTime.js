@@ -67,8 +67,8 @@ const TimeReport = () => {
       }
     const [totalTimeReported, setTotalTimeReported] = useState({});
     const [peopleData, setPeopleData] = useState([]);
-    const [startDate, setStartDate] = useState('2024-03-18'); //EZ
-    const [endDate, setEndDate] = useState('2024-03-24');  //EZ
+    const [startDate, setStartDate] = useState('2024-03-18');
+    const [endDate, setEndDate] = useState('2024-03-24');
 
     const FetchPeopleData = () => {
         const payload = {
@@ -87,9 +87,9 @@ const TimeReport = () => {
     }
    
     useEffect(() => {
-        calculateTimeReported(startDate, endDate).then(setTotalTimeReported); //EZ
+        calculateTimeReported(startDate, endDate).then(setTotalTimeReported);
          FetchPeopleData()
-    }, [startDate, endDate]); //EZ
+    }, [startDate, endDate]);
 
     if (!peopleData) {
         return <div>Loading...</div>;

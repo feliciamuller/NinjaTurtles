@@ -18,14 +18,12 @@
   background-color: rgba(182, 113, 96, 0.5); 
 }
 /*login container*/
-
 .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-
 }
 .login-input{
   display: flex;
@@ -34,7 +32,6 @@
   align-items: center;
   justify-content: center;
 }
-
 /*Logout button*/
 .logOut-button {
   font-family: "Quicksand", sans-serif;
@@ -50,11 +47,9 @@
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
-
 .logOut-button:hover {
   background-color: rgb(136, 77, 64);
 }
-
 /*Timereporting form*/
 .report-form, .projectContainer{
   display: grid;
@@ -65,7 +60,6 @@
   background-color: white;
   opacity: 0.85;
 }
-
 /*Timereporting titel*/
 .title-text{
   align-items: center;
@@ -80,14 +74,7 @@
   font-size: 2em;
   font-weight: lighter;
   text-align: center;
-
 }
-
-/*Timereporting text of the choosing box*/
-.projectDropdown label {
-  color: black;
-}
-
 /*Timereporting submit button*/
 .submit-button {
   font-family: "Quicksand", sans-serif;
@@ -102,11 +89,9 @@
   justify-content: center;
   align-items: center;
 }
-
 .submit-button:hover {
   background-color: rgb(136, 77, 64);
 }
-
 /*Welcome container for the main page*/
 .welcome-container {
   display: flex;
@@ -114,9 +99,7 @@
   align-items: center;
   justify-content: center;
   height: 80vh;
-
 }
-
 /*The title of the welcome page*/
 .welcome-title {
   font-size: 2em;
@@ -124,15 +107,11 @@
   text-align: center;
   height: 100px;
 }
-
 .welcome-title h3 {
-
   font-size: 1em;
   line-height: 25px;
   text-align: center;
 }
-
-
 /*Login submit button*/
 .inputButton {
   font-family: "Quicksand", sans-serif;
@@ -145,13 +124,10 @@
   border-radius: 8px;
   cursor: pointer;
 }
-
 .inputButton:hover {
   background-color: rgb(136, 77, 64);
 }
-
 /*Login input container*/
-
 .inputContainer, .projectInfo, .timereportInfo {
   display: flex;
   padding: 10px;
@@ -160,14 +136,11 @@
   justify-content: center;
   font-size: 1.3em;
 }
-
 .inputContainer>.errorLabel {
   color: red;
   font-size: 16px;
 }
-
 /*Login inputbox*/
-
 .inputBox {
   font-family: "Quicksand", sans-serif;
   font-size: 1em;
@@ -176,18 +149,14 @@
   height: 50px;
   border-radius: 10px;
 }
-
 /*Menu section*/
-
 .headerName {
   color: rgb(44, 29, 29);
   font-size: 48px;
   margin-right: 100px;
   font-weight: lighter;
   margin-left: 20px;
-
 }
-
 .navLinks {
   font-size: 1.8em;
   padding: 10px;
@@ -197,7 +166,6 @@
   justify-content: space-between;
   list-style-type: none;
 }
-
 .navLink {
   margin: 20px;
   text-decoration: none;
@@ -205,38 +173,20 @@
   padding: 15px;
   border-radius: 12%;
 }
-
 .navLink li {
   text-decoration: none;
   display: flex;
   flex-wrap: wrap;
 }
-
 .navLink:hover {
   color:white;
 }
-
 .projectDropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-.submitUpdateButton {
-  font-family: "Quicksand", sans-serif;
-  background-color: rgb(180, 126, 113);
-  color: white;
-  padding: 3px 20px;
-  border: none;
-  border-radius: 29px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin-left: 82px;
-  margin-top: 34px;
-}
-
 .loggedInUserName {
   margin-left: 20px;
   margin-top: 105px;

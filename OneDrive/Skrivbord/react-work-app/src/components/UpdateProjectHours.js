@@ -4,14 +4,11 @@ import axios from "axios";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-
 const UpdateProjectHours = () =>{
-
     const navigate = useNavigate();
     if (localStorage.getItem("loggedIn") === null) {
         navigate("/")
       }
-
 
     const [projectHours, setProjectHours] = useState(null);
     const [data, setData] = useState(null);
