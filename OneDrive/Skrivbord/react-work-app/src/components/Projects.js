@@ -32,13 +32,19 @@ const ShowProjects = () => {
   if (!data || !Array.isArray(data?.results)) {
     return;
   }
+//Checks for projects that still got a valid date that haven't expired and shows some info about that project.
   let activeProjects;
-
   activeProjects = data.results.map((p) => {
     let projectDate = p.properties.Timespan.date?.end
     if (String(projectDate) > today.toLocaleDateString()) {
-      let Projects = p.properties.Projectname.title[0]?.plain_text
-      return Projects
+      
+      return (      
+      <div>
+        {p.properties.Projectname.title[0]?.plain_text} <br />
+       Totalt antal timmar: {p.properties.Hours.number}<br /> 
+       Totalt arbetade timmar: {p.properties["Worked hours"].rollup.number}<br /> 
+       Totalt timmar kvar: {p.properties["Hours left"].formula.number}
+       </div>)
 
     }
     return activeProjects
@@ -66,8 +72,9 @@ const ShowProjects = () => {
           return (
             <tr key={i}>
               <td>
-                {a}
+                {a} 
               </td>
+              <br/>
             </tr>
           )
         })}

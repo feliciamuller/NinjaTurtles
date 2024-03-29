@@ -49,6 +49,7 @@ const HamMenu = () => {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     let items;
+    //checks if the logged in user got some special ID. If so it will show some more options on their page.
     if (localStorage.getItem("loggedIn") === "true") {items = MenuData.map((item, index) => {
         return (
             <SubMenu
