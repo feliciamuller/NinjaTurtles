@@ -75,7 +75,7 @@ const Login = (props) => {
       <section className="login-input">
         <input
           value={email}
-          placeholder="Enter your email here"
+          placeholder="Skriv din mejladress"
           onChange={(ev) => setEmail(ev.target.value)}
           className="inputBox"
         />
@@ -86,7 +86,7 @@ const Login = (props) => {
         <input
           type="password"
           value={password}
-          placeholder="Enter your password here"
+          placeholder="Skriv ditt lösenord"
           onChange={(ev) => setPassword(ev.target.value)}
           className={'inputBox'}
         />
