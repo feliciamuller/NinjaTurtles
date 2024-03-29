@@ -23,8 +23,6 @@ const TimeReport = () => {
     const [activityComment, setActivityComment] = useState(null);
     const hoursInput = parseFloat(hours);
 
-
-
     const addToDatabase = () => {
         const payload = {
             "Hours": {
@@ -127,7 +125,7 @@ const TimeReport = () => {
         axios.post('http://localhost:3001/api/people', payload)
             .then(response => {
                 setPeopleData(response.data);
-                setPeopleId(JSON.parse(localStorage.getItem("userID")))
+                setPeopleId(JSON.parse(localStorage.getItem("userID")))//gets userID from the logged in user and set it to peopleId
                 console.log('Data hämtad från people:', response.data);
                 console.log(peopleId);
             })
@@ -153,7 +151,6 @@ const TimeReport = () => {
         return projectArray;
     }
 
-
     const handleSelect = (e) => {
         const projectName = e.target.value;
 
@@ -166,7 +163,6 @@ const TimeReport = () => {
             setProjectId(selectedProject.id);
         }
     };
-
 
     const submitAddToDatabase = () => {
         setFormSubmitted(true);
@@ -201,14 +197,13 @@ const TimeReport = () => {
                     <input type="date"
                         value={dateInput}
                         onChange={(ev) => setDateInput(ev.target.value)}
-
                     />
                     </section>
                     <section className="inputContainer">
                     <label>Antal timmar</label> <input
                         value={hours}
                         placeholder="Rapportera timmar"
-                        onChange={(ev) => setHours(ev.target.value)}//ändrar state på hours
+                        onChange={(ev) => setHours(ev.target.value)}//set hours to the value of the users input
                     />
                     </section>
                     <section className="inputContainer">
@@ -224,7 +219,7 @@ const TimeReport = () => {
                     <input
                         value={textComment}
                         placeholder="Skriv en kommentar"
-                        onChange={(ev) => setTextComment(ev.target.value)}//ändrar state på textcomment
+                        onChange={(ev) => setTextComment(ev.target.value)}//set textComment to the value of users input
                     />
                    <br/>
                     <button className="submit-button" onClick={submitAddToDatabase}>SKICKA</button>
@@ -238,8 +233,6 @@ const TimeReport = () => {
                 )}
             </div>
         </div >
-
-
     );
 }
 export default TimeReport;
