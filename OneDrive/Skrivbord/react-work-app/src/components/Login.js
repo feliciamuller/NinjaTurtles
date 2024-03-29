@@ -34,7 +34,7 @@ const Login = (props) => {
       setPasswordError('The password must be 6 characters or longer')
       return
     }
-
+// checks if the input is valid with both username and password. Also checks if they gave a special ID.
     for (var p of userEmail) {
       if (p.properties.Email.rich_text[0]?.plain_text === email) {
         userID = p.id
