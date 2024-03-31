@@ -67,10 +67,10 @@ Mail: john@live.se, lösenord: 12345678 (chef)
 #### Logga in som medarbtare
 
 
-#### Länk till vår planering i Notion för projektet:
-https://www.notion.so/Teamspace-Home-b47e893647994e1190a5e20f942af335
 
 
 ![Skärmbild 2024-03-29 203859](https://github.com/feliciamuller/NinjaTurtles/assets/144246594/38bae039-238b-4d6e-a128-e492a38f4373)
 
 
+#### Länk till vår planering i Notion för projektet:
+https://www.notion.so/Teamspace-Home-b47e893647994e1190a5e20f942af335
